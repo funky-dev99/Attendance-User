@@ -4,6 +4,7 @@ class Login extends StatelessWidget {
    Login({Key? key}) : super(key: key);
 
   final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +60,33 @@ class Login extends StatelessWidget {
                           helperStyle: TextStyle(color: Colors.black45)),
                     ),
                   ),
+
+                  const SizedBox(
+                    height: 25,
+                  ),
+
+                  //Password Text field
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25.0),
+                    child: TextField(
+                      controller: passwordController,
+                      obscureText: true,
+                      decoration:  InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            borderSide: BorderSide(color: Colors.blueGrey),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            borderSide: BorderSide(color: Colors.black45),
+                          ),
+                          fillColor: Colors.white,
+                          filled: true,
+                          hintText: '  Password',
+                          helperStyle: TextStyle(color: Colors.black45)),
+                    ),
+                  ),
+
 
 
                 ],
