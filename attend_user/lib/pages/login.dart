@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../home.dart';
+
 class Login extends StatelessWidget {
    Login({Key? key}) : super(key: key);
 
@@ -86,6 +88,81 @@ class Login extends StatelessWidget {
                           helperStyle: TextStyle(color: Colors.black45)),
                     ),
                   ),
+
+                  //Forgot?
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          'Fogot Password?',
+                          style: TextStyle(color: Colors.black87, fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 15,
+                  ),
+
+
+
+                  GestureDetector(
+                    onTap: (){Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => HomePage()));},
+                    child: Container(
+                      padding: EdgeInsets.all(25),
+                      margin: EdgeInsets.symmetric(horizontal: 25),
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Center(
+                        child: Text(
+                          'Sign In',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  //or continue
+
+                  Divider(),
+
+                  //Google+Apple buttons
+
+                  Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      padding: EdgeInsets.symmetric(horizontal: 25),
+                      margin: EdgeInsets.only(left: 30, bottom: 30, right: 30),
+                      child: Image.asset('images/gs.png')),
+
+                  //Register Now
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Not a member?',
+                        style: TextStyle(color: Colors.black87, fontSize: 16),
+                      ),
+                      Text(
+                        'Register Now!!',
+                        style: TextStyle(color: Colors.blue, fontSize: 16),
+                      ),
+                    ],
+                  ),
+
 
 
 
