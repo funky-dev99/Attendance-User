@@ -21,6 +21,99 @@ class HomePage extends StatelessWidget {
         ),
         elevation: 0.0,
       ),
+      body: Column(
+        children: [
+          SizedBox(height: 25,),
+          Row(
+            children: [
+              Expanded(
+                child: MaterialButton(
+                  onPressed: (){
+                    // Navigator.push(
+                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                    },
+                  child: Image.asset('images/attendance.png'),
+                ),
+              ),
+
+              Expanded(
+                child: MaterialButton(
+                  onPressed: (){
+                    // Navigator.push(
+                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                  },
+                  child: Image.asset('images/leave.png'),
+                ),
+              ),
+
+
+
+            ],
+          ),
+
+          SizedBox(height: 20,),
+
+          Row(
+            children: [
+              Expanded(
+                child: MaterialButton(
+                  onPressed: (){
+                    // Navigator.push(
+                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                  },
+                  child: Image.asset('images/claim.png'),
+                ),
+              ),
+
+              Expanded(
+                child: MaterialButton(
+                  onPressed: (){
+                    // Navigator.push(
+                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                  },
+                  child: Image.asset('images/pay.png'),
+                ),
+              ),
+
+
+
+            ],
+          ),
+
+          SizedBox(height: 20,),
+
+          Row(
+            children: [
+              Expanded(
+                child: MaterialButton(
+                  onPressed: (){
+                    // Navigator.push(
+                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                  },
+                  child: Image.asset('images/ask.png'),
+                ),
+              ),
+
+              Expanded(
+                child: MaterialButton(
+                  onPressed: (){
+                    // Navigator.push(
+                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                  },
+                  child: Image.asset('images/set.png'),
+                ),
+              ),
+
+
+
+            ],
+          ),
+
+
+
+
+        ],
+      ),
     );
   }
 }
