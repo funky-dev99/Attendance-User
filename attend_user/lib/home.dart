@@ -1,3 +1,4 @@
+import 'package:attend_user/pages/attendance.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,6 +20,11 @@ class HomePage extends StatelessWidget {
             //     context, MaterialPageRoute(builder: (context) => HomePage()));
           },
         ),
+        actions: [
+          IconButton(icon: Image.asset("images/pro.png"),
+          tooltip: 'View Profile',
+          onPressed: (){},)
+        ],
         elevation: 0.0,
       ),
       body: Column(
@@ -29,8 +35,8 @@ class HomePage extends StatelessWidget {
               Expanded(
                 child: MaterialButton(
                   onPressed: (){
-                    // Navigator.push(
-                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                    Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => AttendanceMain()));
                     },
                   child: Image.asset('images/attendance.png'),
                 ),
