@@ -1,6 +1,8 @@
+import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
 import '../home.dart';
+import 'attend_location.dart';
 
 class AttendanceMain extends StatelessWidget {
   const AttendanceMain({Key? key}) : super(key: key);
@@ -21,7 +23,46 @@ class AttendanceMain extends StatelessWidget {
                   context, MaterialPageRoute(builder: (context) => HomePage()));
             },
           ),
+          actions: [
+            IconButton(icon: Image.asset("images/pro.png"),
+              tooltip: 'View Profile',
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));},)
+
+          ],
         ),
+
+      body: Center(
+        child: Column(
+
+          children: [
+            SizedBox(height: 60,),
+
+            Container(
+              child: MaterialButton(
+                onPressed: (){
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => AttendLoc()));
+                },
+                child: Image.asset('images/wloc.png'),
+              ),
+            ),
+
+            SizedBox(height: 30,),
+
+            Container(
+              child: MaterialButton(
+                onPressed: (){
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => AttendanceMain()));
+                },
+                child: Image.asset('images/wqr.png'),
+              ),
+            ),
+
+          ],
+        ),
+      ),
     );
   }
 }

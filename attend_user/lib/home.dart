@@ -1,4 +1,5 @@
 import 'package:attend_user/pages/attendance.dart';
+import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -23,7 +24,8 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(icon: Image.asset("images/pro.png"),
           tooltip: 'View Profile',
-          onPressed: (){},)
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));},)
         ],
         elevation: 0.0,
       ),
