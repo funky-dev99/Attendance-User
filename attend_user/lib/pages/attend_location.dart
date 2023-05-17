@@ -12,6 +12,7 @@ class AttendLoc extends StatefulWidget {
 }
 
 class _AttendLocState extends State<AttendLoc> {
+  // TextEditingController dateController = TextEditingController();
   TextEditingController dateController = TextEditingController();
 
   @override
@@ -55,7 +56,6 @@ class _AttendLocState extends State<AttendLoc> {
     // }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,6 +87,7 @@ class _AttendLocState extends State<AttendLoc> {
 
               TextField(
 
+
                 controller: dateController, //editing controller of this TextField
                 decoration: const InputDecoration(
 
@@ -116,6 +117,7 @@ class _AttendLocState extends State<AttendLoc> {
                   }
                 },
               ),
+
 
               SizedBox(height: 25),
 
@@ -151,6 +153,9 @@ class _AttendLocState extends State<AttendLoc> {
         ),
       ),
     );
+
+
   }
 }
+
 
