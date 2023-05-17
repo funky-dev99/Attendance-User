@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:intl/intl.dart';
@@ -17,9 +19,15 @@ class _AttendLocState extends State<AttendLoc> {
 
   @override
   void initState() {
-    dateController.text = ""; //set the initial value of text field
+    dateController.text = "";
+    _timeString = _formatDateTime(DateTime.now());
+    Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime()); //set the initial value of text field
     super.initState();
   }
+
+
+
+  late String _timeString;
 
   late bool _serviceEnabled;
   late PermissionStatus _permissionGranted;
@@ -85,6 +93,8 @@ class _AttendLocState extends State<AttendLoc> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
 
+              Text(_timeString),
+
               TextField(
 
 
@@ -144,6 +154,7 @@ class _AttendLocState extends State<AttendLoc> {
             onPressed: (){
               print('Latitude: ${_userLocation?.latitude}');
               print('Longitude: ${_userLocation?.longitude}');
+              print('Time:$_timeString');
               },
             child: const Text('Submit Attendance'),)
 
@@ -155,6 +166,17 @@ class _AttendLocState extends State<AttendLoc> {
     );
 
 
+  }
+  void _getTime() {
+    final DateTime now = DateTime.now();
+    final String formattedDateTime = _formatDateTime(now);
+    setState(() {
+      _timeString = formattedDateTime;
+    });
+  }
+
+  String _formatDateTime(DateTime dateTime) {
+    return DateFormat('hh:mm:ss').format(dateTime);
   }
 }
 
