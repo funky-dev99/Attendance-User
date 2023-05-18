@@ -2,6 +2,8 @@ import 'package:attend_user/pages/attendance.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
+import 'methods/methods.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -24,23 +26,24 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(icon: Image.asset("images/pro.png"),
-          tooltip: 'View Profile',
-          onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));},)
+            tooltip: 'View Profile',
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));},)
         ],
         elevation: 0.0,
       ),
       body: Column(
+
         children: [
-          SizedBox(height: 25,),
+          SizedBox(height: getSizeBoxHeightL(context)),
           Row(
             children: [
               Expanded(
                 child: MaterialButton(
                   onPressed: (){
                     Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => AttendanceMain()));
-                    },
+                        context, MaterialPageRoute(builder: (context) => AttendanceMain()));
+                  },
                   child: Image.asset('images/attendance.png'),
                 ),
               ),
@@ -60,7 +63,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
 
-          SizedBox(height: 20,),
+          SizedBox(height: getSizeBoxHeight(context),),
 
           Row(
             children: [
@@ -89,7 +92,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
 
-          SizedBox(height: 20,),
+          SizedBox(height: getSizeBoxHeight(context),),
 
           Row(
             children: [
