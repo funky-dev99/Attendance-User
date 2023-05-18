@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
                 child: MaterialButton(
                   onPressed: (){
                     Navigator.push(
-                      context, MaterialPageRoute(builder: (context) =>  LeavePage()));
+                      context, MaterialPageRoute(builder: (context) =>  Leave()));
                   },
                   child: Image.asset('images/leave.png'),
                 ),

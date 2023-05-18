@@ -37,7 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   location: ^4.4.0
   flutter_svg: ^2.0.5
-  date_time_picker: "^2.1.0"
+  dropdown_button2: ^2.1.2
+
+  date_time_picker: ^2.1.0
 
 dev_dependencies:
   flutter_test:
