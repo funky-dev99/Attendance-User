@@ -1,4 +1,5 @@
 import 'package:attend_user/pages/attendance.dart';
+import 'package:attend_user/pages/leave.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -51,8 +52,8 @@ class HomePage extends StatelessWidget {
               Expanded(
                 child: MaterialButton(
                   onPressed: (){
-                    // Navigator.push(
-                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                    Navigator.push(
+                      context, MaterialPageRoute(builder: (context) =>  LeavePage()));
                   },
                   child: Image.asset('images/leave.png'),
                 ),
