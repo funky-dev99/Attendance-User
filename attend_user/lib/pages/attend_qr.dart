@@ -28,6 +28,7 @@ class AttendQr extends StatelessWidget {
               Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));},)
 
         ],
+        elevation: 0.0,
       ),
     );
   }

@@ -32,6 +32,7 @@ class AttendanceMain extends StatelessWidget {
               Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));},)
 
         ],
+        elevation: 0.0,
       ),
 
       body: Center(

@@ -70,7 +70,7 @@ class _AttendLocState extends State<AttendLoc> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Text(
-          "Location",
+          "Mark With Location",
           style: TextStyle(color: Colors.black, fontSize: 22),
         ),
         leading: IconButton(
@@ -85,6 +85,7 @@ class _AttendLocState extends State<AttendLoc> {
             tooltip: 'View Profile',
             onPressed: (){},)
         ],
+        elevation: 0.0,
       ),
       body: Center(
         child: Padding(
