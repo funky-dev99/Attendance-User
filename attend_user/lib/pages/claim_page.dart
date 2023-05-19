@@ -13,6 +13,7 @@ class ClaimPage extends StatefulWidget {
 
 class _ClaimPageState extends State<ClaimPage> {
   String selectedClaimType = '';
+  final desController = TextEditingController();
 
   final List<String> _claimTypes = [
     'Claim Type 1',
@@ -137,6 +138,40 @@ class _ClaimPageState extends State<ClaimPage> {
               ),
             ],
           ),
+
+
+          Container(
+            padding: EdgeInsets.all(10.0),
+            child: TextFormField(
+              controller: desController,
+              keyboardType: TextInputType.multiline,
+              maxLines: 3,
+              decoration: InputDecoration(
+                hintText: 'Enter your description',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.only(left: 0.0),
+                margin: const EdgeInsets.only(left: 10.0,top: 5.0),
+                child: const Text(
+                  'Upload Document:',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+
+
+
         ],
       ),
     );
