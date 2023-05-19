@@ -1,4 +1,5 @@
 import 'package:attend_user/pages/attendance.dart';
+import 'package:attend_user/pages/claim_page.dart';
 import 'package:attend_user/pages/leave.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
@@ -71,8 +72,8 @@ class HomePage extends StatelessWidget {
               Expanded(
                 child: MaterialButton(
                   onPressed: (){
-                    // Navigator.push(
-                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => const ClaimPage()));
                   },
                   child: Image.asset('images/claim.png'),
                 ),
@@ -81,8 +82,7 @@ class HomePage extends StatelessWidget {
               Expanded(
                 child: MaterialButton(
                   onPressed: (){
-                    // Navigator.push(
-                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                    //
                   },
                   child: Image.asset('images/pay.png'),
                 ),
