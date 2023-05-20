@@ -1,5 +1,6 @@
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
 
 import '../home.dart';
 import '../methods/methods.dart';
@@ -36,7 +37,7 @@ class _ClaimPageState extends State<ClaimPage> {
           icon: Image.asset("images/back.png"),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const HomePage()));
+                MaterialPageRoute(builder: (context) =>  HomePage()));
           },
         ),
         actions: [
@@ -45,7 +46,7 @@ class _ClaimPageState extends State<ClaimPage> {
             tooltip: 'View Profile',
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()));
+                  MaterialPageRoute(builder: (context) => ProfilePage()));
             },
           )
         ],
@@ -102,7 +103,7 @@ class _ClaimPageState extends State<ClaimPage> {
                   value:
                       selectedClaimType.isNotEmpty ? selectedClaimType : null,
                   hint: const Text('Select Claim Type'),
-                  onChanged: (String? value) {
+                  onChanged: ( value) {
                     setState(() {
                       selectedClaimType = value ?? '';
                     });
@@ -167,6 +168,40 @@ class _ClaimPageState extends State<ClaimPage> {
                 ),
               ),
             ],
+          ),
+
+          SizedBox(
+            height: getSizeBoxHeight(context),
+          ),
+
+          ElevatedButton.icon(
+            onPressed: () async {
+              FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+              if (result != null) {
+                PlatformFile file = result.files.first;
+                print('File path: ${file.path}');
+                print('File name: ${file.name}');
+                print('File size: ${file.size}');
+              } else {
+                // User canceled the file picker
+              }
+            },
+            icon: Icon(
+              Icons.upload,
+              color: Colors.black,
+            ),
+            label: Text(
+              'Upload File',
+              style: TextStyle(color: Colors.black),
+            ),
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.all(16.0),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              primary: Colors.grey, // Background color
+            ),
           ),
 
 

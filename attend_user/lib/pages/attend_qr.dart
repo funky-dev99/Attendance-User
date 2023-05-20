@@ -20,7 +20,7 @@ class AttendQr extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const AttendanceMain()));
+                    builder: (context) => AttendanceMain()));
           },
         ),
         actions: [
@@ -29,7 +29,7 @@ class AttendQr extends StatelessWidget {
             tooltip: 'View Profile',
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()));
+                  MaterialPageRoute(builder: (context) => ProfilePage()));
             },
           )
         ],

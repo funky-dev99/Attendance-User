@@ -22,14 +22,14 @@ class AttendanceMain extends StatelessWidget {
           icon: Image.asset("images/back.png"),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const HomePage()));
+                context, MaterialPageRoute(builder: (context) =>  HomePage()));
           },
         ),
         actions: [
           IconButton(icon: Image.asset("images/pro.png"),
             tooltip: 'View Profile',
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));},)
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>  ProfilePage()));},)
 
         ],
         elevation: 0.0,

@@ -27,12 +27,12 @@ class _AttendLocState extends State<AttendLoc> {
 
 
 
-  late String _timeString;
+   late String _timeString;
 
-  late bool _serviceEnabled;
-  late PermissionStatus _permissionGranted;
+   late bool _serviceEnabled;
+   late PermissionStatus _permissionGranted;
 
-  LocationData? _userLocation;
+  late LocationData _userLocation;
 
   Future<void> _getUserLocation() async {
     Location location = Location();
