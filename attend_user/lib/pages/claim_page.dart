@@ -52,162 +52,175 @@ class _ClaimPageState extends State<ClaimPage> {
         ],
         elevation: 0.0,
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: getSizeBoxHeight(context),
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: getSizeBoxHeight(context),
+            ),
 
-          //Claim Type Text
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.only(left: 0.0),
-                margin: const EdgeInsets.only(left: 10.0),
-                child: const Text(
-                  'Claim Type:',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ],
-          ),
-
-          SizedBox(
-            height: getSizeBoxHeight(context),
-          ),
-
-          //Claim type drope down box..
-          Row(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(left: 30),
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                width: 220,
-                decoration: BoxDecoration(
-                  color: Colors.grey, // Change the color to your desired color
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(
-                          0.5), // Change the shadow color if needed
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: const Offset(
-                          0, 3), // Adjust the offset for the drop shadow
+            //Claim Type Text
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(left: 0.0),
+                  margin: const EdgeInsets.only(left: 10.0),
+                  child: const Text(
+                    'Claim Type:',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
                     ),
-                  ],
-                ),
-                child: DropdownButton<String>(
-                  value:
-                      selectedClaimType.isNotEmpty ? selectedClaimType : null,
-                  hint: const Text('Select Claim Type'),
-                  onChanged: ( value) {
-                    setState(() {
-                      selectedClaimType = value ?? '';
-                    });
-                  },
-                  items: _claimTypes.map((String claimType) {
-                    return DropdownMenuItem<String>(
-                      value: claimType,
-                      child: Text(claimType),
-                    );
-                  }).toList(),
-                ),
-              ),
-            ],
-          ),
-
-          SizedBox(
-            height: getSizeBoxHeight(context),
-          ),
-
-          //Description Text
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.only(left: 0.0),
-                margin: const EdgeInsets.only(left: 10.0),
-                child: const Text(
-                  'Description:',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
                   ),
                 ),
-              ),
-            ],
-          ),
-
-
-          Container(
-            padding: EdgeInsets.all(10.0),
-            child: TextFormField(
-              controller: desController,
-              keyboardType: TextInputType.multiline,
-              maxLines: 3,
-              decoration: InputDecoration(
-                hintText: 'Enter your description',
-                border: OutlineInputBorder(),
-              ),
+              ],
             ),
-          ),
 
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.only(left: 0.0),
-                margin: const EdgeInsets.only(left: 10.0,top: 5.0),
-                child: const Text(
-                  'Upload Document:',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
+            SizedBox(
+              height: getSizeBoxHeight(context),
+            ),
+
+            //Claim type drope down box..
+            Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(left: 30),
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  width: 220,
+                  decoration: BoxDecoration(
+                    color: Colors.grey, // Change the color to your desired color
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(
+                            0.5), // Change the shadow color if needed
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(
+                            0, 3), // Adjust the offset for the drop shadow
+                      ),
+                    ],
+                  ),
+                  child: DropdownButton<String>(
+                    value:
+                        selectedClaimType.isNotEmpty ? selectedClaimType : null,
+                    hint: const Text('Select Claim Type'),
+                    onChanged: ( value) {
+                      setState(() {
+                        selectedClaimType = value ?? '';
+                      });
+                    },
+                    items: _claimTypes.map((String claimType) {
+                      return DropdownMenuItem<String>(
+                        value: claimType,
+                        child: Text(claimType),
+                      );
+                    }).toList(),
                   ),
                 ),
+              ],
+            ),
+
+            SizedBox(
+              height: getSizeBoxHeight(context),
+            ),
+
+            //Description Text
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(left: 0.0),
+                  margin: const EdgeInsets.only(left: 10.0),
+                  child: const Text(
+                    'Description:',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: TextFormField(
+                controller: desController,
+                keyboardType: TextInputType.multiline,
+                maxLines: 3,
+                decoration: InputDecoration(
+                  hintText: 'Enter your description',
+                  border: OutlineInputBorder(),
+                ),
               ),
-            ],
-          ),
-
-          SizedBox(
-            height: getSizeBoxHeight(context),
-          ),
-
-          ElevatedButton.icon(
-            onPressed: () async {
-              FilePickerResult? result = await FilePicker.platform.pickFiles();
-
-              if (result != null) {
-                PlatformFile file = result.files.first;
-                print('File path: ${file.path}');
-                print('File name: ${file.name}');
-                print('File size: ${file.size}');
-              } else {
-                // User canceled the file picker
-              }
-            },
-            icon: Icon(
-              Icons.upload,
-              color: Colors.black,
             ),
-            label: Text(
-              'Upload File',
-              style: TextStyle(color: Colors.black),
+
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(left: 0.0),
+                  margin: const EdgeInsets.only(left: 10.0,top: 5.0),
+                  child: const Text(
+                    'Upload Document:',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.all(16.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+
+            SizedBox(
+              height: getSizeBoxHeight(context),
+            ),
+
+            ElevatedButton.icon(
+              onPressed: () async {
+                FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+                if (result != null) {
+                  PlatformFile file = result.files.first;
+                  print('File path: ${file.path}');
+                  print('File name: ${file.name}');
+                  print('File size: ${file.size}');
+                } else {
+                  // User canceled the file picker
+                }
+              },
+              icon: Icon(
+                Icons.upload,
+                color: Colors.black,
               ),
-              primary: Colors.grey, // Background color
+              label: Text(
+                'Upload File',
+                style: TextStyle(color: Colors.black),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.all(16.0), backgroundColor: Colors.grey,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ), // Background color
+              ),
             ),
-          ),
+
+
+            SizedBox(
+              height: getSizeBoxHeight(context),
+            ),
+
+            ElevatedButton(
+              onPressed: (){
+                print('Claim Type: $selectedClaimType');
+                print('Note: $desController');
+              },
+              child: const Text('Submit Attendance'),)
 
 
 
 
-        ],
+          ],
+        ),
       ),
     );
   }

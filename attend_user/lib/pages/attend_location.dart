@@ -27,12 +27,12 @@ class _AttendLocState extends State<AttendLoc> {
 
 
 
-   late String _timeString;
+  late String _timeString;
 
-   late bool _serviceEnabled;
-   late PermissionStatus _permissionGranted;
+  late bool _serviceEnabled;
+  late PermissionStatus _permissionGranted;
 
-  late LocationData _userLocation;
+  LocationData? _userLocation;
 
   Future<void> _getUserLocation() async {
     Location location = Location();
@@ -70,7 +70,7 @@ class _AttendLocState extends State<AttendLoc> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Text(
-          "Mark With Location",
+          "Location",
           style: TextStyle(color: Colors.black, fontSize: 22),
         ),
         leading: IconButton(
@@ -85,7 +85,6 @@ class _AttendLocState extends State<AttendLoc> {
             tooltip: 'View Profile',
             onPressed: (){},)
         ],
-        elevation: 0.0,
       ),
       body: Center(
         child: Padding(
@@ -151,13 +150,13 @@ class _AttendLocState extends State<AttendLoc> {
 
               SizedBox(height: 25),
 
-          ElevatedButton(
-            onPressed: (){
-              print('Latitude: ${_userLocation?.latitude}');
-              print('Longitude: ${_userLocation?.longitude}');
-              print('Time:$_timeString');
-              },
-            child: const Text('Submit Attendance'),)
+              ElevatedButton(
+                onPressed: (){
+                  print('Latitude: ${_userLocation?.latitude}');
+                  print('Longitude: ${_userLocation?.longitude}');
+                  print('Time:$_timeString');
+                },
+                child: const Text('Submit Attendance'),)
 
 
             ],
@@ -180,5 +179,3 @@ class _AttendLocState extends State<AttendLoc> {
     return DateFormat('hh:mm:ss').format(dateTime);
   }
 }
-
-
