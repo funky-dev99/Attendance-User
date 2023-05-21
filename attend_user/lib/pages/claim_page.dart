@@ -66,7 +66,7 @@ class _ClaimPageState extends State<ClaimPage> {
                   padding: const EdgeInsets.only(left: 0.0),
                   margin: const EdgeInsets.only(left: 10.0),
                   child: const Text(
-                    'Claim Type:',
+                    'Claim Type :',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black,
@@ -85,10 +85,10 @@ class _ClaimPageState extends State<ClaimPage> {
               children: [
                 Container(
                   margin: const EdgeInsets.only(left: 30),
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  width: 220,
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  width: 350,
                   decoration: BoxDecoration(
-                    color: Colors.grey, // Change the color to your desired color
+                    color: Colors.grey[350], // Change the color to your desired color
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(
@@ -115,13 +115,15 @@ class _ClaimPageState extends State<ClaimPage> {
                         child: Text(claimType),
                       );
                     }).toList(),
+
+
                   ),
                 ),
               ],
             ),
 
             SizedBox(
-              height: getSizeBoxHeight(context),
+              height: getSizeBoxHeightL(context),
             ),
 
             //Description Text
@@ -131,7 +133,7 @@ class _ClaimPageState extends State<ClaimPage> {
                   padding: const EdgeInsets.only(left: 0.0),
                   margin: const EdgeInsets.only(left: 10.0),
                   child: const Text(
-                    'Description:',
+                    'Description :',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black,
@@ -143,7 +145,7 @@ class _ClaimPageState extends State<ClaimPage> {
 
 
             Container(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(20.0),
               child: TextFormField(
                 controller: desController,
                 keyboardType: TextInputType.multiline,
@@ -154,6 +156,9 @@ class _ClaimPageState extends State<ClaimPage> {
                 ),
               ),
             ),
+            SizedBox(
+              height: getSizeBoxHeightL(context),
+            ),
 
             Row(
               children: [
@@ -161,7 +166,7 @@ class _ClaimPageState extends State<ClaimPage> {
                   padding: const EdgeInsets.only(left: 0.0),
                   margin: const EdgeInsets.only(left: 10.0,top: 5.0),
                   child: const Text(
-                    'Upload Document:',
+                    'Upload Document :',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black,
@@ -190,14 +195,14 @@ class _ClaimPageState extends State<ClaimPage> {
               },
               icon: Icon(
                 Icons.upload,
-                color: Colors.black,
+                color: Colors.red,
               ),
               label: Text(
                 'Upload File',
                 style: TextStyle(color: Colors.black),
               ),
               style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.all(16.0), backgroundColor: Colors.grey,
+                padding: const EdgeInsets.all(16.0), backgroundColor: Colors.grey[350],
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ), // Background color
@@ -206,7 +211,7 @@ class _ClaimPageState extends State<ClaimPage> {
 
 
             SizedBox(
-              height: getSizeBoxHeight(context),
+              height: getSizeBoxHeightL(context),
             ),
 
             ElevatedButton(
@@ -214,7 +219,7 @@ class _ClaimPageState extends State<ClaimPage> {
                 print('Claim Type: $selectedClaimType');
                 print('Note: $desController');
               },
-              child: const Text('Submit Attendance'),)
+              child: const Text('Request'),)
 
 
 
