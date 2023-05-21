@@ -84,9 +84,9 @@ class _ClaimPageState extends State<ClaimPage> {
             Row(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(left: 30),
+                  margin: const EdgeInsets.only(left: 20),
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  width: 350,
+                  width: 320,
                   decoration: BoxDecoration(
                     color: Colors.grey[350], // Change the color to your desired color
                     boxShadow: [
@@ -226,7 +226,8 @@ class _ClaimPageState extends State<ClaimPage> {
               ),
               child: const
               Text('Request',
-                  style: TextStyle(fontSize: 19),),
+
+                  style: TextStyle(fontSize: 18,),),
             )
 
 

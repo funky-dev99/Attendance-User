@@ -1,4 +1,187 @@
+// import 'package:flutter/material.dart';
+// import 'package:image_picker/image_picker.dart';
+// import 'dart:io';
+//
+// import '../home.dart';
+//
+// class ProfilePage extends StatefulWidget {
+//   const ProfilePage({Key? key}) : super(key: key);
+//
+//   @override
+//   State<ProfilePage> createState() => _ProfilePageState();
+// }
+//
+// class _ProfilePageState extends State<ProfilePage> {
+//   bool isObscurePassword = true;
+//   File? _imageFile;
+//
+//   Future<void> _pickImage() async {
+//     final pickedImage =
+//     await ImagePicker().getImage(source: ImageSource.gallery);
+//
+//     if (pickedImage != null) {
+//       setState(() {
+//         _imageFile = File(pickedImage.path);
+//       });
+//     }
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         backgroundColor: Colors.white,
+//         title: const Text(
+//           "My Profile",
+//           style: TextStyle(color: Colors.black, fontSize: 22),
+//         ),
+//         leading: IconButton(
+//           icon: Image.asset("images/back.png"),
+//           onPressed: () {
+//             Navigator.push(
+//                 context, MaterialPageRoute(builder: (context) => HomePage()));
+//           },
+//         ),
+//         elevation: 0.0,
+//       ),
+//       body: Container(
+//         padding: const EdgeInsets.only(left: 15, top: 20, right: 15),
+//         child: GestureDetector(
+//           onTap: () {
+//             FocusScope.of(context).unfocus();
+//           },
+//           child: ListView(
+//             children: [
+//               Center(
+//                 child: Stack(
+//                   children: [
+//                     Container(
+//                       width: 130,
+//                       height: 130,
+//                       decoration: BoxDecoration(
+//                         border: Border.all(width: 4, color: Colors.white),
+//                         boxShadow: [
+//                           BoxShadow(
+//                             spreadRadius: 2,
+//                             blurRadius: 10,
+//                             color: Colors.black.withOpacity(0.1),
+//                           )
+//                         ],
+//                         shape: BoxShape.circle,
+//                         image: _imageFile != null
+//                             ? DecorationImage(
+//                           fit: BoxFit.cover,
+//                           image: FileImage(_imageFile!),
+//                         )
+//                             : const DecorationImage(
+//                           fit: BoxFit.cover,
+//                           image: NetworkImage(
+//                               'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'),
+//                         ),
+//                       ),
+//                     ),
+//                     Positioned(
+//                       bottom: 0,
+//                       right: 0,
+//                       child: GestureDetector(
+//                         onTap: _pickImage,
+//                         child: Container(
+//                           height: 40,
+//                           width: 40,
+//                           decoration: BoxDecoration(
+//                               shape: BoxShape.circle,
+//                               border: Border.all(width: 4, color: Colors.white),
+//                               color: Colors.blue),
+//                           child: const Icon(
+//                             Icons.edit,
+//                             color: Colors.white,
+//                           ),
+//                         ),
+//                       ),
+//                     )
+//                   ],
+//                 ),
+//               ),
+//               const SizedBox(
+//                 height: 30,
+//               ),
+//               buildTextField("ID", "Enter ID Number", false),
+//               buildTextField("Full Name", "Enter Full Name", false),
+//               buildTextField("Email", "Enter Your Email", false),
+//               buildTextField("Password", "Enter Password", true),
+//               const SizedBox(height: 50),
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: [
+//                   ElevatedButton(
+//                     onPressed: () {},
+//                     child: const Text("Cancel",
+//                         style: TextStyle(
+//                             fontSize: 15,
+//                             letterSpacing: 2,
+//                             color: Colors.white)),
+//                     style: ElevatedButton.styleFrom(
+//                         primary: Colors.red,
+//                         padding: const EdgeInsets.symmetric(horizontal: 50),
+//                         shape: RoundedRectangleBorder(
+//                             borderRadius: BorderRadius.circular(10))),
+//                   ),
+//                   ElevatedButton(
+//                     onPressed: () {},
+//                     child: const Text("Submit",
+//                         style: TextStyle(
+//                             fontSize: 15,
+//                             letterSpacing: 2,
+//                             color: Colors.white)),
+//                     style: ElevatedButton.styleFrom(
+//                         primary: Colors.black,
+//                         padding: const EdgeInsets.symmetric(horizontal: 50),
+//                         shape: RoundedRectangleBorder(
+//                             borderRadius: BorderRadius.circular(10))),
+//                   ),
+//                 ],
+//               )
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+//
+//   Widget buildTextField(
+//       String labelText, String placeholder, bool isPasswordTextField) {
+//     return Padding(
+//       padding: const EdgeInsets.only(bottom: 30),
+//       child: TextField(
+//         obscureText: isPasswordTextField ? isObscurePassword : false,
+//         decoration: InputDecoration(
+//             suffixIcon: isPasswordTextField
+//                 ? IconButton(
+//                 icon: const Icon(
+//                   Icons.remove_red_eye,
+//                   color: Colors.grey,
+//                 ),
+//                 onPressed: () {
+//                   setState(() {
+//                     isObscurePassword = !isObscurePassword;
+//                   });
+//                 })
+//                 : null,
+//             contentPadding: const EdgeInsets.only(bottom: 5),
+//             labelText: labelText,
+//             floatingLabelBehavior: FloatingLabelBehavior.always,
+//             hintText: placeholder,
+//             hintStyle: const TextStyle(
+//                 fontSize: 14,
+//                 fontWeight: FontWeight.bold,
+//                 color: Colors.grey)),
+//       ),
+//     );
+//   }
+// }
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 import '../home.dart';
 
@@ -11,8 +194,19 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   bool isObscurePassword = true;
+  File? _imageFile;
 
-  // @override
+  Future<void> _pickImage() async {
+    final pickedImage =
+    await ImagePicker().getImage(source: ImageSource.gallery);
+
+    if (pickedImage != null) {
+      setState(() {
+        _imageFile = File(pickedImage.path);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +220,7 @@ class _ProfilePageState extends State<ProfilePage> {
           icon: Image.asset("images/back.png"),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) =>  HomePage()));
+                context, MaterialPageRoute(builder: (context) => HomePage()));
           },
         ),
         elevation: 0.0,
@@ -34,7 +228,7 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Container(
         padding: const EdgeInsets.only(left: 15, top: 20, right: 15),
         child: GestureDetector(
-          onTap: (){
+          onTap: () {
             FocusScope.of(context).unfocus();
           },
           child: ListView(
@@ -51,75 +245,80 @@ class _ProfilePageState extends State<ProfilePage> {
                           BoxShadow(
                             spreadRadius: 2,
                             blurRadius: 10,
-                            color: Colors.black.withOpacity(0.1)
+                            color: Colors.black.withOpacity(0.1),
                           )
                         ],
                         shape: BoxShape.circle,
-                        image: const DecorationImage(
+                        image: _imageFile != null
+                            ? DecorationImage(
+                          fit: BoxFit.cover,
+                          image: FileImage(_imageFile!),
+                        )
+                            : const DecorationImage(
                           fit: BoxFit.cover,
                           image: NetworkImage(
-                            'https://cdn.pixabay.com/photo/2017/11/19/07/30/girl-2961959_960_720.jpg'
-                          )
-                        )
+                              'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'),
+                        ),
                       ),
                     ),
                     Positioned(
                       bottom: 0,
                       right: 0,
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            width: 4,
-                            color: Colors.white
+                      child: GestureDetector(
+                        onTap: _pickImage,
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(width: 4, color: Colors.white),
+                              color: Colors.blue),
+                          child: const Icon(
+                            Icons.edit,
+                            color: Colors.white,
                           ),
-                          color: Colors.blue
                         ),
-                        child: const Icon(
-                          Icons.edit,
-                          color: Colors.white,
-                        ),
-
-                        ))
+                      ),
+                    )
                   ],
                 ),
               ),
-               const SizedBox(height: 30,),
-              buildTextField("ID", "Enter ID Number", false),
-              buildTextField("Full Name", "Enter Full Name", false),
-              buildTextField("Email", "Enter Your Email", false),
-              buildTextField("Password", "Enter Password", true),
+              const SizedBox(
+                height: 30,
+              ),
+              buildTextField("ID", "Enter ID Number", false, 18), // Updated font size
+              buildTextField("Full Name", "Enter Full Name", false, 18), // Updated font size
+              buildTextField("Email", "Enter Your Email", false, 18), // Updated font size
+              buildTextField("Password", "Enter Password", true, 18), // Updated font size
               const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                      onPressed: () {},
-                    child: const Text("Cancel", style: TextStyle(
-                      fontSize: 15,
-                      letterSpacing: 2,
-                      color: Colors.white
-                    )),
+                    onPressed: () {},
+                    child: const Text("Cancel",
+                        style: TextStyle(
+                            fontSize: 15,
+                            letterSpacing: 2,
+                            color: Colors.white)),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.red,
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
-                    ),
+                        primary: Colors.red,
+                        padding: const EdgeInsets.symmetric(horizontal: 50),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10))),
                   ),
                   ElevatedButton(
                     onPressed: () {},
-                    child: const Text("Submit", style: TextStyle(
-                        fontSize: 15,
-                        letterSpacing: 2,
-                        color: Colors.white
-                    )),
+                    child: const Text("Submit",
+                        style: TextStyle(
+                            fontSize: 15,
+                            letterSpacing: 2,
+                            color: Colors.white)),
                     style: ElevatedButton.styleFrom(
                         primary: Colors.black,
                         padding: const EdgeInsets.symmetric(horizontal: 50),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
-                    ),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10))),
                   ),
                 ],
               )
@@ -130,31 +329,44 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget buildTextField(String labelText, String placeholder, bool isPasswordTextField){
+  Widget buildTextField(
+      String labelText,
+      String placeholder,
+      bool isPasswordTextField,
+      double fontSize,
+      ) {
     return Padding(
-        padding: const EdgeInsets.only(bottom: 30),
+      padding: const EdgeInsets.only(bottom: 30),
       child: TextField(
         obscureText: isPasswordTextField ? isObscurePassword : false,
         decoration: InputDecoration(
-          suffixIcon: isPasswordTextField ?
-              IconButton(
-                icon: const Icon(Icons.remove_red_eye,color: Colors.grey,),
-                onPressed: (){
-                  setState(() {
-                    isObscurePassword = !isObscurePassword;
-                  });
-                }
-              ): null,
+          suffixIcon: isPasswordTextField
+              ? IconButton(
+            icon: const Icon(
+              Icons.remove_red_eye,
+              color: Colors.grey,
+            ),
+            onPressed: () {
+              setState(() {
+                isObscurePassword = !isObscurePassword;
+              });
+            },
+          )
+              : null,
           contentPadding: const EdgeInsets.only(bottom: 5),
           labelText: labelText,
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            hintText: placeholder,
-            hintStyle:const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey
-
-            )
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          hintText: placeholder,
+          hintStyle: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: Colors.grey,
+          ),
+          labelStyle: const TextStyle(
+            fontSize: 20, // Updated font size
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
         ),
       ),
     );
