@@ -45,7 +45,7 @@ class _AttendQrState extends State<AttendQr> {
         color: Colors.black,
         emptyColor: Colors.white70,
         embeddedImage: image,
-        embeddedImageStyle: const QrEmbeddedImageStyle(
+        embeddedImageStyle: QrEmbeddedImageStyle(
           size: Size.square(50),
         ),
       ),
