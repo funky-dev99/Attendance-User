@@ -46,7 +46,7 @@ class _ClaimPageState extends State<ClaimPage> {
             tooltip: 'View Profile',
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()));
+                  MaterialPageRoute(builder: (context) => const ProfilePage()));
             },
           )
         ],
