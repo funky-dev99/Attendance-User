@@ -1,7 +1,10 @@
+import 'package:attend_user/pages/askpage.dart';
 import 'package:attend_user/pages/attendance.dart';
 import 'package:attend_user/pages/claim_page.dart';
 import 'package:attend_user/pages/leave.dart';
+import 'package:attend_user/pages/payslip.dart';
 import 'package:attend_user/pages/profile.dart';
+import 'package:attend_user/pages/setting.dart';
 import 'package:flutter/material.dart';
 
 import 'methods/methods.dart';
@@ -73,7 +76,7 @@ class HomePage extends StatelessWidget {
                 child: MaterialButton(
                   onPressed: (){
                     Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => const ClaimPage()));
+                        context, MaterialPageRoute(builder: (context) => ClaimPage()));
                   },
                   child: Image.asset('images/claim.png'),
                 ),
@@ -82,7 +85,9 @@ class HomePage extends StatelessWidget {
               Expanded(
                 child: MaterialButton(
                   onPressed: (){
-                    //
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => PaySlipPage()));
+
                   },
                   child: Image.asset('images/pay.png'),
                 ),
@@ -100,8 +105,8 @@ class HomePage extends StatelessWidget {
               Expanded(
                 child: MaterialButton(
                   onPressed: (){
-                    // Navigator.push(
-                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                    Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => AskPage()));
                   },
                   child: Image.asset('images/ask.png'),
                 ),
@@ -110,8 +115,8 @@ class HomePage extends StatelessWidget {
               Expanded(
                 child: MaterialButton(
                   onPressed: (){
-                    // Navigator.push(
-                    //   context, MaterialPageRoute(builder: (context) => QRViewExample()));
+                    Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Settings()));
                   },
                   child: Image.asset('images/set.png'),
                 ),
