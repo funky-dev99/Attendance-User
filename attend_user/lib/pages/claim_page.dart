@@ -80,7 +80,7 @@ class _ClaimPageState extends State<ClaimPage> {
               height: getSizeBoxHeight(context),
             ),
 
-            //Claim type drope down box..
+            //Claim type drop down box..
             Row(
               children: [
                 Container(
@@ -148,7 +148,7 @@ class _ClaimPageState extends State<ClaimPage> {
                 controller: desController,
                 keyboardType: TextInputType.multiline,
                 maxLines: 3,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Enter your description',
                   border: OutlineInputBorder(),
                 ),
@@ -197,7 +197,7 @@ class _ClaimPageState extends State<ClaimPage> {
                 style: TextStyle(color: Colors.black),
               ),
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.all(16.0), backgroundColor: Colors.grey,
+                padding: const EdgeInsets.all(16.0), backgroundColor: Colors.grey,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ), // Background color
