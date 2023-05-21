@@ -156,8 +156,8 @@ class _ClaimPageState extends State<ClaimPage> {
                 ),
               ),
             ),
-            SizedBox(
-              height: getSizeBoxHeightL(context),
+            const SizedBox(
+              height: 30,
             ),
 
             Row(
@@ -193,11 +193,11 @@ class _ClaimPageState extends State<ClaimPage> {
                   // User canceled the file picker
                 }
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.upload,
                 color: Colors.red,
               ),
-              label: Text(
+              label: const Text(
                 'Upload File',
                 style: TextStyle(color: Colors.black),
               ),
@@ -215,11 +215,19 @@ class _ClaimPageState extends State<ClaimPage> {
             ),
 
             ElevatedButton(
-              onPressed: (){
+              onPressed: () {
                 print('Claim Type: $selectedClaimType');
                 print('Note: $desController');
               },
-              child: const Text('Request'),)
+              style: ElevatedButton.styleFrom(
+                primary: Colors.black, // Sets the background color
+                onPrimary: Colors.white, // Sets the text color
+                minimumSize: const Size(150, 50), // Sets the minimum size of the button
+              ),
+              child: const
+              Text('Request',
+                  style: TextStyle(fontSize: 19),),
+            )
 
 
 
