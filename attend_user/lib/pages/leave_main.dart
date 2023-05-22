@@ -22,7 +22,7 @@ class LeaveMain extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => const HomePage()),
             );
           },
         ),
@@ -108,6 +108,133 @@ class LeaveMain extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: getSizeBoxHeight(context)),
+
+                  Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(left: 30),
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        width: 300,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[350], // Change the color to your desired color
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(
+                                0.5,
+                              ), // Change the shadow color if needed
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: const Offset(
+                                0,
+                                3,
+                              ),
+                            ),
+                          ],
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0), // Customize the padding as per your requirements
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Vacation',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: getSizeBoxHeight(context)),
+
+                  Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(left: 30),
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        width: 300,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[350], // Change the color to your desired color
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(
+                                0.5,
+                              ), // Change the shadow color if needed
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: const Offset(
+                                0,
+                                3,
+                              ),
+                            ),
+                          ],
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0), // Customize the padding as per your requirements
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Annual Leave',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: getSizeBoxHeight(context)),
+
+                  Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(left: 30),
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        width: 300,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[350], // Change the color to your desired color
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(
+                                0.5,
+                              ), // Change the shadow color if needed
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: const Offset(
+                                0,
+                                3,
+                              ),
+                            ),
+                          ],
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0), // Customize the padding as per your requirements
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Holiday',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+
+                        ),
+                      ),
+                    ],
+                  ),
+
 
                   // Add your other widgets here
 
@@ -119,7 +246,7 @@ class LeaveMain extends StatelessWidget {
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(bottom: 50.0), // Customize the paddings as per your requirements
+                padding: const EdgeInsets.only(bottom: 40.0), // Customize the paddings as per your requirements
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(

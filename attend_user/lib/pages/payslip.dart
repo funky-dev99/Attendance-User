@@ -203,26 +203,35 @@ class PaySlipPage extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          // Download logic
-          String pdfUrl = 'https://drive.google.com/file/d/13oiEqrDQp-Wkjw7abj_8RvieqkGYKAlW/view?usp=share_link';
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 60.0),
+        child: FloatingActionButton.extended(
+          onPressed: () {
+            // Download logic
+            String pdfUrl = 'https://drive.google.com/file/d/13oiEqrDQp-Wkjw7abj_8RvieqkGYKAlW/view?usp=share_link';
 
-          // Display PDF using flutter_pdfview package
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => PDFView(
-                filePath: pdfUrl,
+            // Display PDF using flutter_pdfview package
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PDFView(
+                  filePath: pdfUrl,
+                ),
               ),
-            ),
-          );
+            );
 
-          // Alternatively, open PDF URL using url_launcher package
-          launch(pdfUrl);
-        },
-        icon: const Icon(Icons.picture_as_pdf_sharp),
-        label: const Text('Download PDF'),
+            // Alternatively, open PDF URL using url_launcher package
+            launch(pdfUrl);
+          },
+          icon: const Icon(Icons.picture_as_pdf_sharp),
+          label: const Text('Download PDF'),
+          // backgroundColor: Colors.black, // Change the background color
+          // foregroundColor: Colors.white,
+          // shape: RoundedRectangleBorder(
+          //   borderRadius: BorderRadius.circular(5.0)
+          // ),
+
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
