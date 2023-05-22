@@ -293,6 +293,23 @@ class _LeaveState extends State<Leave> {
             ],
           ),
 
+          ElevatedButton(
+            onPressed: () {
+              print('Leave Type: $selectedLeaveType');
+              print('From: $fromdateController');
+              print('To: $todateController');
+              print('Day Part: $selectedDayPart');
+            },
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.white, backgroundColor: Colors.black, // Sets the text color
+              minimumSize: const Size(150, 50), // Sets the minimum size of the button
+            ),
+            child: const
+            Text('Submit',
+
+              style: TextStyle(fontSize: 18,),),
+          )
+
 
         ],
       )
