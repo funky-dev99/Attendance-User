@@ -221,7 +221,7 @@ class PaySlipPage extends StatelessWidget {
           // Alternatively, open PDF URL using url_launcher package
           launch(pdfUrl);
         },
-        icon: const Icon(Icons.file_download),
+        icon: const Icon(Icons.picture_as_pdf_sharp),
         label: const Text('Download PDF'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
