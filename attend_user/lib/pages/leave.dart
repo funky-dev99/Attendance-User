@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../home.dart';
 import '../methods/methods.dart';
+import 'package:file_picker/file_picker.dart';
 
 class Leave extends StatefulWidget {
   Leave({Key? key}) : super(key: key);
@@ -292,6 +293,62 @@ class _LeaveState extends State<Leave> {
               ),
             ],
           ),
+          SizedBox(
+            height: getSizeBoxHeight(context),
+          ),
+
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.only(left: 0.0),
+                margin: const EdgeInsets.only(left: 10.0,top: 5.0),
+                child: const Text(
+                  'Upload Document :',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          SizedBox(
+            height: getSizeBoxHeight(context),
+          ),
+
+          ElevatedButton.icon(
+            onPressed: () async {
+              FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+              if (result != null) {
+                PlatformFile file = result.files.first;
+                print('File path: ${file.path}');
+                print('File name: ${file.name}');
+                print('File size: ${file.size}');
+              } else {
+                // User canceled the file picker
+              }
+            },
+            icon: const Icon(
+              Icons.cloud_upload,
+              color: Colors.red,
+            ),
+            label: const Text(
+              'Upload',
+              style: TextStyle(color: Colors.black),
+            ),
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.all(16.0), backgroundColor: Colors.grey[350],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ), // Background color
+            ),
+          ),
+          SizedBox(
+            height: getSizeBoxHeightL(context),
+          ),
+
 
           ElevatedButton(
             onPressed: () {

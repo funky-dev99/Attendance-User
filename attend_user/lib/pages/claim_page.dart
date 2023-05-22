@@ -194,11 +194,11 @@ class _ClaimPageState extends State<ClaimPage> {
                 }
               },
               icon: const Icon(
-                Icons.upload,
+                Icons.cloud_upload,
                 color: Colors.red,
               ),
               label: const Text(
-                'Upload File',
+                'Upload',
                 style: TextStyle(color: Colors.black),
               ),
               style: ElevatedButton.styleFrom(
