@@ -225,11 +225,11 @@ class PaySlipPage extends StatelessWidget {
           },
           icon: const Icon(Icons.picture_as_pdf_sharp),
           label: const Text('Download PDF'),
-          // backgroundColor: Colors.black, // Change the background color
-          // foregroundColor: Colors.white,
-          // shape: RoundedRectangleBorder(
-          //   borderRadius: BorderRadius.circular(5.0)
-          // ),
+          backgroundColor: Colors.black, // Change the background color
+          foregroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5.0)
+          ),
 
         ),
       ),
