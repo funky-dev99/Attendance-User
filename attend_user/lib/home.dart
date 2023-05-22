@@ -1,7 +1,7 @@
 import 'package:attend_user/pages/askpage.dart';
 import 'package:attend_user/pages/attendance.dart';
 import 'package:attend_user/pages/claim_page.dart';
-import 'package:attend_user/pages/leave.dart';
+import 'package:attend_user/pages/leave_main.dart';
 import 'package:attend_user/pages/payslip.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:attend_user/pages/setting.dart';
@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
                 child: MaterialButton(
                   onPressed: (){
                     Navigator.push(
-                      context, MaterialPageRoute(builder: (context) =>  Leave()));
+                      context, MaterialPageRoute(builder: (context) =>  LeaveMain()));
                   },
                   child: Image.asset('images/leave.png'),
                 ),

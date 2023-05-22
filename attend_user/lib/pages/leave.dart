@@ -1,8 +1,7 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:attend_user/pages/leave_main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../home.dart';
 import '../methods/methods.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -59,7 +58,7 @@ class _LeaveState extends State<Leave> {
           icon: Image.asset("images/back.png"),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) =>  HomePage()));
+                context, MaterialPageRoute(builder: (context) =>  LeaveMain()));
           },
         ),
         elevation: 0.0,
