@@ -45,6 +45,8 @@ dependencies:
   http: any
   file_picker: ^5.3.0
   image_picker: ^0.8.4+4
+  flutter_pdfview: any
+  url_launcher: any
 
 
 dev_dependencies:
