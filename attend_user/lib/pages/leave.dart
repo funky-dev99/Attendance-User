@@ -26,9 +26,8 @@ class _LeaveState extends State<Leave> {
     'Leave Type 5',
   ];
   final List<String> _DayParts = [
-    'DayPart 1',
-    'DayPart 2',
-    'DayPart 3',
+    'Day Part 1',
+    'Day Part 2',
   ];
 
   @override
@@ -92,9 +91,9 @@ class _LeaveState extends State<Leave> {
               Container(
                 margin: const EdgeInsets.only(left: 30),
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                width: 220,
+                width: 300,
                 decoration: BoxDecoration(
-                  color: Colors.grey, // Change the color to your desired color
+                  color: Colors.grey[350], // Change the color to your desired color
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(
@@ -259,9 +258,9 @@ class _LeaveState extends State<Leave> {
               Container(
                 margin: const EdgeInsets.only(left: 30),
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                width: 220,
+                width: 300,
                 decoration: BoxDecoration(
-                  color: Colors.grey, // Change the color to your desired color
+                  color: Colors.grey[350], // Change the color to your desired color
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(
