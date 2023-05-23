@@ -39,7 +39,7 @@ class _ProfilePageState extends State<ProfilePage> {
           icon: Image.asset("images/back.png"),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomePage()));
+                context, MaterialPageRoute(builder: (context) => const HomePage()));
           },
         ),
         elevation: 0.0,
@@ -105,10 +105,10 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(
                 height: 30,
               ),
-              buildTextField("ID", "Enter ID Number", false, 18), // Updated font size
-              buildTextField("Full Name", "Enter Full Name", false, 18), // Updated font size
-              buildTextField("Email", "Enter Your Email", false, 18), // Updated font size
-              buildTextField("Password", "Enter Password", true, 18), // Updated font size
+              buildTextField("ID", "Enter ID Number", false, 18),
+              buildTextField("Full Name", "Enter Full Name", false, 18),
+              buildTextField("Email", "Enter Your Email", false, 18),
+              buildTextField("Password", "Enter Password", true, 18),
               const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,7 +121,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             letterSpacing: 2,
                             color: Colors.white)),
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.red,
+                        backgroundColor: Colors.red,
                         padding: const EdgeInsets.symmetric(horizontal: 50),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
@@ -134,7 +134,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             letterSpacing: 2,
                             color: Colors.white)),
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.black,
+                        backgroundColor: Colors.black,
                         padding: const EdgeInsets.symmetric(horizontal: 50),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),

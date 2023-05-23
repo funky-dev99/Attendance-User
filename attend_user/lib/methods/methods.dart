@@ -28,5 +28,5 @@ double getHorizPadding(BuildContext context) {
 }
 
 double getButtonRadius(BuildContext context) {
-  return 30.0 ;
+  return 15.0 ;
 }

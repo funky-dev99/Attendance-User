@@ -50,8 +50,8 @@ class _LoginState extends State<Login> {
 
                 //Welcome Back Text
                 const Text(
-                  'Welcome back, You\'ve been missed!!',
-                  style: TextStyle(color: Colors.black87, fontSize: 18),
+                  'Welcome Back, You\'ve been missed!!',
+                  style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   height: getSizeBoxHeight(context),
@@ -155,8 +155,8 @@ class _LoginState extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: const [
                       Text(
-                        'Fogot Password?',
-                        style: TextStyle(color: Colors.black87, fontSize: 16),
+                        'Forgot Password ?',
+                        style: TextStyle(color: Colors.red, fontSize: 12),
                       ),
                     ],
                   ),
@@ -195,8 +195,8 @@ class _LoginState extends State<Login> {
 
                   },
                   child: Container(
-                    padding: const EdgeInsets.all(25),
-                    margin: const EdgeInsets.symmetric(horizontal: 25),
+                    padding: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.symmetric(horizontal: 90),
                     decoration: BoxDecoration(
                         color: Colors.black,
                         borderRadius: BorderRadius.circular(8)),
@@ -205,7 +205,7 @@ class _LoginState extends State<Login> {
                         'Sign In',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -240,6 +240,7 @@ class _LoginState extends State<Login> {
                       'Not a member?',
                       style: TextStyle(color: Colors.black87, fontSize: 16),
                     ),
+                    SizedBox(width: 10,),
                     Text(
                       'Register Now!!',
                       style: TextStyle(color: Colors.blue, fontSize: 16),
