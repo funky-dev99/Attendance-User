@@ -1,44 +1,5 @@
-// import 'package:attend_user/pages/profile.dart';
-// import 'package:flutter/material.dart';
-//
-// import '../home.dart';
-//
-// class AskPage extends StatelessWidget {
-//   const AskPage({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Colors.white,
-//         title: const Text(
-//           "Ask Something",
-//           style: TextStyle(color: Colors.black, fontSize: 22),
-//         ),
-//         leading: IconButton(
-//           icon: Image.asset("images/back.png"),
-//           onPressed: () {
-//             Navigator.push(
-//                 context, MaterialPageRoute(builder: (context) =>  HomePage()));
-//           },
-//         ),
-//         actions: [
-//           IconButton(icon: Image.asset("images/pro.png"),
-//             tooltip: 'View Profile',
-//             onPressed: (){
-//               Navigator.push(context, MaterialPageRoute(builder: (context) =>  ProfilePage()));},)
-//
-//         ],
-//         elevation: 0.0,
-//       ),
-//
-//
-//     );
-//   }
-// }
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
-import 'package:file_picker/file_picker.dart';
 
 import '../home.dart';
 import '../methods/methods.dart';
@@ -76,7 +37,7 @@ class _AskPageState extends State<AskPage> {
           icon: Image.asset("images/back.png"),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) =>  HomePage()));
+                MaterialPageRoute(builder: (context) =>  const HomePage()));
           },
         ),
         actions: [
@@ -216,7 +177,7 @@ class _AskPageState extends State<AskPage> {
 
 
             Container(
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0),
               child: TextFormField(
                 controller: desController,
                 keyboardType: TextInputType.multiline,
@@ -227,16 +188,9 @@ class _AskPageState extends State<AskPage> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 30,
-            ),
 
             SizedBox(
-              height: getSizeBoxHeight(context),
-            ),
-
-            SizedBox(
-              height: getSizeBoxHeight(context),
+              height: getSizeBoxHeightL(context),
             ),
 
             ElevatedButton(
@@ -246,8 +200,7 @@ class _AskPageState extends State<AskPage> {
                 print('Note: $desController');
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.black, // Sets the background color
-                onPrimary: Colors.white, // Sets the text color
+                foregroundColor: Colors.white, backgroundColor: Colors.black, // Sets the text color
                 minimumSize: const Size(150, 50), // Sets the minimum size of the button
               ),
               child: const
