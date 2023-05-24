@@ -40,7 +40,8 @@ class _ProfilePageState extends State<ProfilePage> {
           icon: Image.asset("images/back.png"),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const Settings()));
+
+                context, MaterialPageRoute(builder: (context) =>  HomePage()));
           },
         ),
         elevation: 0.0,

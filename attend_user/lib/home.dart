@@ -12,7 +12,25 @@ import 'methods/methods.dart';
 
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
+
+  final List<String> containerTexts = [
+    'Attendance',
+    'Leave',
+    'Claim Request',
+    'Pay Slip',
+    'Ask',
+    'Settings',
+  ];
+
+  final List<String> imagePaths = [
+    'images/attend.png',
+    'images/leave.png',
+    'images/claim.png',
+    'images/payslip.png',
+    'images/ask.png',
+    'images/set.png',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -43,101 +61,117 @@ class HomePage extends StatelessWidget {
         ],
         elevation: 0.0,
       ),
-      body: Column(
+      body: Container(
+        padding: EdgeInsets.all(20.0),
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: List.generate(6, (index) {
+            return _buildContainer(index, context); // Pass the context to _buildContainer
+          }),
+        ),
+      ),
+    );
+  }
 
-        children: [
-          SizedBox(height: getSizeBoxHeightL(context)),
-          Row(
+  Widget _buildContainer(int index, BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(10.0),
+      child: SizedBox(
+        width: 145.0,
+        height: 145.0,
+        child: MaterialButton(
+          onPressed: () {
+            // Replace with your own logic for each container
+            switch (index) {
+              case 0:
+                _handleContainer0Pressed(context); // Pass the context to _handleContainerXPressed methods
+                break;
+              case 1:
+                _handleContainer1Pressed(context);
+                break;
+              case 2:
+                _handleContainer2Pressed(context);
+                break;
+              case 3:
+                _handleContainer3Pressed(context);
+                break;
+              case 4:
+                _handleContainer4Pressed(context);
+                break;
+              case 5:
+                _handleContainer5Pressed(context);
+                break;
+            }
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                child: MaterialButton(
-                  onPressed: (){
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => AttendanceMain()));
-                  },
-                  child: Image.asset('images/attendance.png'),
-                ),
+              Image.asset(
+                imagePaths[index],
+                width: 125.0,
+                height: 100.0,
               ),
-
-              Expanded(
-                child: MaterialButton(
-                  onPressed: (){
-                    Navigator.push(
-                      context, MaterialPageRoute(builder: (context) =>  LeaveMain()));
-                  },
-                  child: Image.asset('images/leave.png'),
-                ),
+              SizedBox(height: 10.0),
+              Text(
+                containerTexts[index],
+                style: TextStyle(fontSize: 18.0),
               ),
-
-
-
             ],
           ),
-
-          SizedBox(height: getSizeBoxHeight(context),),
-
-          Row(
-            children: [
-              Expanded(
-                child: MaterialButton(
-                  onPressed: (){
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => ClaimPage()));
-                  },
-                  child: Image.asset('images/claim.png'),
-                ),
-              ),
-
-              Expanded(
-                child: MaterialButton(
-                  onPressed: (){
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => PaySlipPage()));
-
-                  },
-                  child: Image.asset('images/pay.png'),
-                ),
-              ),
-
-
-
-            ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
           ),
-
-          SizedBox(height: getSizeBoxHeight(context),),
-
-          Row(
-            children: [
-              Expanded(
-                child: MaterialButton(
-                  onPressed: (){
-                    Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => AskPage()));
-                  },
-                  child: Image.asset('images/ask.png'),
-                ),
-              ),
-
-              Expanded(
-                child: MaterialButton(
-                  onPressed: (){
-                    Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Settings()));
-                  },
-                  child: Image.asset('images/set.png'),
-                ),
-              ),
-
-
-
-            ],
-          ),
-
-
-
-
-        ],
+          elevation: 2.0,
+          color: Colors.white,
+          textColor: Colors.black,
+        ),
       ),
     );
   }
 }
+
+
+// Separate onPressed functions for each container
+void _handleContainer0Pressed(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => AttendanceMain()), // Replace NextPage with the desired page widget
+  );
+}
+
+void _handleContainer1Pressed(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => LeaveMain()), // Replace NextPage with the desired page widget
+  );
+}
+
+void _handleContainer2Pressed(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => ClaimPage()), // Replace NextPage with the desired page widget
+  );
+}
+
+void _handleContainer3Pressed(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => PaySlipPage()), // Replace NextPage with the desired page widget
+  );
+}
+
+void _handleContainer4Pressed(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => AskPage()), // Replace NextPage with the desired page widget
+  );
+}
+
+void _handleContainer5Pressed(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Settings()), // Replace NextPage with the desired page widget
+  );
+}
+
+
