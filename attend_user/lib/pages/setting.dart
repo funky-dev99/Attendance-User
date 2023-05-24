@@ -52,10 +52,9 @@ class _SettingsState extends State<Settings> {
         elevation: 0.0,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(bottom: 50),
+        padding: const EdgeInsets.only(top: 30),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 width: 100,
@@ -82,7 +81,22 @@ class _SettingsState extends State<Settings> {
                   ),
                 ),
               ),
-              const SizedBox(height: 60), // Add spacing below the image
+              SizedBox(height: 10,),
+              Container(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Text('Dinethri Gunawardhana',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold
+                      ),),
+                    ],
+                  ),
+                ),
+              ),
+              
+              const SizedBox(height: 50), // Add spacing below the image
 
               const TextVertical(icon: Icons.account_circle_sharp, text: 'Profile Edit'),
               const TextVertical(icon: Icons.lock, text: 'Privacy'),
