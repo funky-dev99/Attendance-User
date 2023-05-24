@@ -61,8 +61,9 @@ class HomePage extends StatelessWidget {
         ],
         elevation: 0.0,
       ),
+
       body: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.only(top: 40.0),
         child: GridView.count(
           crossAxisCount: 2,
           children: List.generate(6, (index) {
@@ -75,7 +76,7 @@ class HomePage extends StatelessWidget {
 
   Widget _buildContainer(int index, BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10.0),
+      margin: const EdgeInsets.all(10.0),
       child: SizedBox(
         width: 145.0,
         height: 145.0,
@@ -114,7 +115,7 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 10.0),
               Text(
                 containerTexts[index],
-                style: TextStyle(fontSize: 18.0),
+                style: TextStyle(fontSize: 16.0),
               ),
             ],
           ),

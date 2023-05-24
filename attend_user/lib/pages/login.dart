@@ -49,9 +49,12 @@ class _LoginState extends State<Login> {
                 ),
 
                 //Welcome Back Text
-                const Text(
-                  'Welcome Back, You\'ve been missed!!',
-                  style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+                Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: const Text(
+                    'Welcome Back, You\'ve been missed!!',
+                    style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
                 ),
                 SizedBox(
                   height: getSizeBoxHeight(context),
@@ -195,8 +198,8 @@ class _LoginState extends State<Login> {
 
                   },
                   child: Container(
-                    padding: const EdgeInsets.all(20),
-                    margin: const EdgeInsets.symmetric(horizontal: 90),
+                    padding: const EdgeInsets.all(15),
+                    margin: const EdgeInsets.symmetric(horizontal: 80),
                     decoration: BoxDecoration(
                         color: Colors.black,
                         borderRadius: BorderRadius.circular(8)),
@@ -211,11 +214,17 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: getSizeBoxHeight(context),
+                ),
 
                 //or continue
 
                 const Divider(
                   thickness: 1,
+                ),
+                SizedBox(
+                  height: getSizeBoxHeight(context),
                 ),
 
                 //Google+Apple buttons
@@ -227,8 +236,11 @@ class _LoginState extends State<Login> {
                   padding: EdgeInsets.symmetric(
                       horizontal: getHorizPadding(context)),
                   margin:
-                  const EdgeInsets.only(left: 30, bottom: 30, right: 30),
+                  const EdgeInsets.only(left: 50, bottom: 30, right: 50),
                   child: Image.asset('images/gs.png'),
+                ),
+                SizedBox(
+                  height: getSizeBoxHeight(context),
                 ),
 
                 //Register Now
