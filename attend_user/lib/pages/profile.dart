@@ -1,3 +1,4 @@
+import 'package:attend_user/pages/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -39,7 +40,7 @@ class _ProfilePageState extends State<ProfilePage> {
           icon: Image.asset("images/back.png"),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const HomePage()));
+                context, MaterialPageRoute(builder: (context) => const Settings()));
           },
         ),
         elevation: 0.0,

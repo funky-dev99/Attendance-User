@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:attend_user/pages/help.dart';
+import 'package:attend_user/pages/language.dart';
 import 'package:attend_user/pages/privacy.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
@@ -136,74 +138,18 @@ class TextVertical extends StatelessWidget {
               } else if (text == 'Language') {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LanguagePage()),
+                  MaterialPageRoute(builder: (context) => LanguPage()),
                 );
               } else if (text == 'Help & Support') {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HelpSupportPage()),
+                  MaterialPageRoute(builder: (context) => HelpPage()),
                 );
               }
             },
           ),
           const SizedBox(width: 40),
         ],
-      ),
-    );
-  }
-}
-
-// class PrivacyPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Privacy'),
-//       ),
-//       body: const Center(
-//         child: Text('Privacy Page'),
-//       ),
-//     );
-//   }
-// }
-
-class NotificationsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Notifications'),
-      ),
-      body: const Center(
-        child: Text('Notifications Page'),
-      ),
-    );
-  }
-}
-
-class LanguagePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Language'),
-      ),
-      body: const Center(
-        child: Text('Language Page'),
-      ),
-    );
-  }
-}
-
-class HelpSupportPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Help & Support'),
-      ),
-      body: const Center(
-        child: Text('Help & Support Page'),
       ),
     );
   }

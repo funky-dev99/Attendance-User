@@ -3,8 +3,8 @@ import 'package:attend_user/pages/setting.dart';
 import 'package:flutter/material.dart';
 
 
-class PrivacyPage extends StatelessWidget {
-  const PrivacyPage({Key? key}) : super(key: key);
+class LanguPage extends StatelessWidget {
+  const LanguPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class PrivacyPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Text(
-          "Privacy Settings",
+          "Language Settings",
           style: TextStyle(color: Colors.black, fontSize: 22),
         ),
         leading: IconButton(
