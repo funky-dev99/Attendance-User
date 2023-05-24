@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:attend_user/pages/privacy.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -152,19 +153,19 @@ class TextVertical extends StatelessWidget {
   }
 }
 
-class PrivacyPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Privacy'),
-      ),
-      body: const Center(
-        child: Text('Privacy Page'),
-      ),
-    );
-  }
-}
+// class PrivacyPage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Privacy'),
+//       ),
+//       body: const Center(
+//         child: Text('Privacy Page'),
+//       ),
+//     );
+//   }
+// }
 
 class NotificationsPage extends StatelessWidget {
   @override
