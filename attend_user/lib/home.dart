@@ -8,6 +8,7 @@ import 'package:attend_user/pages/payslip.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:attend_user/pages/setting.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -74,12 +75,20 @@ class HomePage extends StatelessWidget {
             icon: const Icon(Icons.login_outlined, size: 30.0,),
             color: Colors.black,
             tooltip: 'Notifications',
-            onPressed: () {
-              Navigator.push(
+
+            onPressed: () async {
+              // Clear shared preferences login data
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.clear();
+
+              // Navigate back to the Login screen
+              Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (context) => Login()),
+                    (route) => false, // This will remove all the routes until the Login screen
               );
             },
+
           ),
         ],
         elevation: 0.0,
