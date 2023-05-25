@@ -1,3 +1,6 @@
+//userID = 12345
+//username = test@gmail.com
+//password = 111111
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -100,6 +103,24 @@ class _LoginState extends State<Login> {
         backgroundColor: color,
       ),
     );
+  }
+
+  Future<void> checkLoginState() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String loginState = prefs.getString('login_state') ?? '0';
+
+    if (loginState == '1') {
+      // User is already logged in, navigate to the home page
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkLoginState();
   }
 
   @override
