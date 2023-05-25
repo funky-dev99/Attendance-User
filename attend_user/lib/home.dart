@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
           style: TextStyle(color: Colors.black, fontSize: 22),
         ),
         leading: IconButton(
-          icon:  Icon(Icons.home_rounded),
+          icon:  Icon(Icons.home_rounded, size: 30.0,),
         color: Colors.black,
           onPressed: () {
             // Navigator.push(
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person,size: 30.0,),
             color: Colors.black,
             tooltip: 'View Profile',
             onPressed: () {
@@ -60,7 +60,7 @@ class HomePage extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: const Icon(Icons.notifications_active_outlined),
+            icon: const Icon(Icons.notifications_active_outlined, size: 30.0,),
             color: Colors.black,
             tooltip: 'Notifications',
             onPressed: () {
@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: const Icon(Icons.login_outlined),
+            icon: const Icon(Icons.login_outlined, size: 30.0,),
             color: Colors.black,
             tooltip: 'Notifications',
             onPressed: () {

@@ -20,13 +20,14 @@ class AttendanceMain extends StatelessWidget {
         ),
         leading: IconButton(
           icon: Image.asset("images/back.png"),
+          iconSize: 20,
           onPressed: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) =>  HomePage()));
           },
         ),
         actions: [
-          IconButton(icon: Icon(Icons.person),
+          IconButton(icon: Icon(Icons.person, size: 30.0,),
             color: Colors.black,
             tooltip: 'View Profile',
             onPressed: (){

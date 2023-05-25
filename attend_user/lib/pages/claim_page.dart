@@ -42,7 +42,7 @@ class _ClaimPageState extends State<ClaimPage> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person, size: 30.0,),
             color: Colors.black,
             tooltip: 'View Profile',
             onPressed: () {

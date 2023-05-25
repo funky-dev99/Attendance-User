@@ -23,7 +23,7 @@ class PrivacyPage extends StatelessWidget {
           },
         ),
         actions: [
-          IconButton(icon: Icon(Icons.person),
+          IconButton(icon: Icon(Icons.person, size: 30.0,),
             color: Colors.black,
             tooltip: 'View Profile',
             onPressed: (){
