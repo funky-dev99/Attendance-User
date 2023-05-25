@@ -8,7 +8,7 @@ import 'package:attend_user/pages/profile.dart';
 import 'package:attend_user/pages/setting.dart';
 import 'package:flutter/material.dart';
 
-import 'methods/methods.dart';
+
 
 
 class HomePage extends StatelessWidget {
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));},),
 
-          IconButton(icon: Icon(Icons.notifications_active_outlined),color: Colors.black,
+          IconButton(icon: const Icon(Icons.notifications_active_outlined),color: Colors.black,
             tooltip: 'Notifications',
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationPage()));},)
@@ -62,13 +62,16 @@ class HomePage extends StatelessWidget {
         elevation: 0.0,
       ),
 
-      body: Container(
-        padding: EdgeInsets.only(top: 40.0),
-        child: GridView.count(
-          crossAxisCount: 2,
-          children: List.generate(6, (index) {
-            return _buildContainer(index, context); // Pass the context to _buildContainer
-          }),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(20.0),
+          child: GridView.count(
+            crossAxisCount: 2,
+            children: List.generate(6, (index) {
+              return _buildContainer(index, context); // Pass the context to _buildContainer
+            }),
+          ),
+
         ),
       ),
     );
