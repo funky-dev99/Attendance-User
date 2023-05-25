@@ -1,7 +1,13 @@
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../home.dart';
-import '../methods/methods.dart';
+
+
+
 
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
@@ -12,21 +18,92 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool userIdValidate = false;
-
   bool userNameValidate = false;
-
   bool passwordValidate = false;
-
   final usernameController = TextEditingController();
-
   final passwordController = TextEditingController();
-
   final userIdController = TextEditingController();
 
   @override
   void dispose() {
     userIdController.dispose();
-    dispose();
+    usernameController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  Future<bool> login(BuildContext context, String userId, String userName, String password) async {
+    var url = "https://talent.cbs.lk/signin.php";
+
+    var data = {
+      "user_name": userName,
+      "user_id": userId,
+      "password": password,
+    };
+
+    http.Response res = await http.post(
+      Uri.parse(url),
+      body: data,
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      encoding: Encoding.getByName("utf-8"),
+    );
+
+    if (res.statusCode == 200) {
+      Map<String, dynamic> result = jsonDecode(res.body);
+      print('Response: ' + res.body);
+
+      bool status = result['status'];
+      if (status) {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('login_state', '1');
+        prefs.setString('company_id', result['company_id']);
+        prefs.setString('company_name', result['company_name']);
+        prefs.setString('first_name', result['first_name']);
+        prefs.setString('last_name', result['last_name']);
+        prefs.setString('user_id', result['user_id']);
+        prefs.setString('user_role', result['user_role']);
+
+        if (result['user_role'] == '0') {
+          // TODO: Implement the logic for user role '0'
+        } else {
+          Navigator.of(context).pop();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LayoutBuilder(
+              builder: (context, constraints) {
+                return HomePage();
+              },
+            )),
+          );
+        }
+        return true;
+      } else {
+        Navigator.of(context).pop();
+        if (result['message'] == "User not found") {
+          snackBar(context, "User not found", Colors.redAccent);
+        } else {
+          snackBar(context, result['message'], Colors.redAccent);
+        }
+      }
+    } else {
+      snackBar(context, "Error", Colors.redAccent);
+      return false;
+    }
+
+    return false; // Default return false if login fails
+  }
+
+
+  void snackBar(BuildContext context, String message, Color color) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: color,
+      ),
+    );
   }
 
   @override
@@ -39,13 +116,13 @@ class _LoginState extends State<Login> {
             child: Column(
               children: [
                 SizedBox(
-                  height: getSizeBoxHeight(context),
+                  height: 50,
                 ),
                 //Logo
                 Image.asset('images/login.png'),
 
                 SizedBox(
-                  height: getSizeBoxHeight(context),
+                  height: 50,
                 ),
 
                 //Welcome Back Text
@@ -57,207 +134,87 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 SizedBox(
-                  height: getSizeBoxHeight(context),
+                  height: 50,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: getHorizPadding(context)),
-                  child: TextField(
-                    controller: userIdController,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius:
-                          BorderRadius.circular(getButtonRadius(context)),
-                          borderSide: const BorderSide(
-                            color: Colors.blueGrey,
-                          ),
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    children: [
+                      //UserID TextField
+                      TextField(
+                        controller: userIdController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'UserID',
+                          errorText: userIdValidate ? 'Value Can\'t Be Empty' : null,
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius:
-                          BorderRadius.circular(getButtonRadius(context)),
-                          borderSide: const BorderSide(color: Colors.black45),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      //Username TextField
+                      TextField(
+                        controller: usernameController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Username',
+                          errorText: userNameValidate ? 'Value Can\'t Be Empty' : null,
                         ),
-                        fillColor: Colors.white30,
-                        filled: true,
-                        hintText: '   User ID',
-                        errorText:
-                        userIdValidate ? 'User Name Can\'t Be Empty' : null,
-                        helperStyle: const TextStyle(color: Colors.black45)),
-                  ),
-                ),
-                SizedBox(
-                  height: getSizeBoxHeight(context),
-                ),
-
-                //Username Text field
-                Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: getHorizPadding(context)),
-                  child: TextField(
-                    controller: usernameController,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius:
-                          BorderRadius.circular(getButtonRadius(context)),
-                          borderSide: const BorderSide(
-                            color: Colors.blueGrey,
-                          ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      //Password TextField
+                      TextField(
+                        controller: passwordController,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Password',
+                          errorText: passwordValidate ? 'Value Can\'t Be Empty' : null,
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius:
-                          BorderRadius.circular(getButtonRadius(context)),
-                          borderSide: const BorderSide(color: Colors.black45),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      //Login Button
+                      MaterialButton(
+                        onPressed: () {
+                          setState(() {
+                            userIdController.text.isEmpty ? userIdValidate = true : userIdValidate = false;
+                            usernameController.text.isEmpty ? userNameValidate = true : userNameValidate = false;
+                            passwordController.text.isEmpty ? passwordValidate = true : passwordValidate = false;
+                          });
+                          if (!userIdValidate && !userNameValidate && !passwordValidate) {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              },
+                            );
+                            login(
+                              context,
+                              userIdController.text.trim(),
+                              usernameController.text.trim(),
+                              passwordController.text.trim(),
+                            );
+                          }
+                        },
+                        minWidth: 150.0,
+                        height: 50.0,
+                        color: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
-                        fillColor: Colors.white30,
-                        filled: true,
-                        hintText: '   User Name',
-                        errorText:
-                        userNameValidate ? 'User ID Can\'t Be Empty' : null,
-                        helperStyle: const TextStyle(color: Colors.black45)),
-                  ),
-                ),
-
-                SizedBox(
-                  height: getSizeBoxHeight(context),
-                ),
-
-                //Password Text field
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: getHorizPadding(context)),
-                  child: TextField(
-                    controller: passwordController,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius:
-                          BorderRadius.circular(getButtonRadius(context)),
-                          borderSide: const BorderSide(color: Colors.blueGrey),
+                        child: Text(
+                          'Login',
+                          style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius:
-                          BorderRadius.circular(getButtonRadius(context)),
-                          borderSide: const BorderSide(color: Colors.black45),
-                        ),
-                        fillColor: Colors.white,
-                        filled: true,
-                        hintText: '  Password',
-                        errorText:
-                        passwordValidate ? 'Password Can\'t Be Empty' : null,
-                        helperStyle: const TextStyle(color: Colors.black45)),
-                  ),
-                ),
-
-                //Forgot?
-                SizedBox(
-                  height: getSizeBoxHeight(context),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: getHorizPadding(context)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Text(
-                        'Forgot Password ?',
-                        style: TextStyle(color: Colors.red, fontSize: 12),
                       ),
                     ],
                   ),
-                ),
-
-                SizedBox(
-                  height: getSizeBoxHeight(context),
-                ),
-
-                GestureDetector(
-                  // onTap: (){Navigator.push(
-                  //     context, MaterialPageRoute(builder: (context) => const HomePage()));},
-                  onTap: () async {
-                    setState(() {
-                      userIdController.text.isEmpty
-                          ? userIdValidate = true
-                          : userIdValidate = false;
-
-                      usernameController.text.isEmpty
-                          ? userNameValidate = true
-                          : userNameValidate = false;
-
-                      passwordController.text.isEmpty
-                          ? passwordValidate = true
-                          : passwordValidate = false;
-
-                    });
-                    if (!userIdValidate && !userNameValidate && !passwordValidate) {
-                      // Add your function here that should be executed when all validations are false
-                      // For example, you can navigate to the next page or perform any other desired action.
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) =>  HomePage()),
-                      );
-                    }
-
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.all(15),
-                    margin: const EdgeInsets.symmetric(horizontal: 80),
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(8)),
-                    child: const Center(
-                      child: Text(
-                        'Sign In',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: getSizeBoxHeight(context),
-                ),
-
-                //or continue
-
-                const Divider(
-                  thickness: 1,
-                ),
-                SizedBox(
-                  height: getSizeBoxHeight(context),
-                ),
-
-                //Google+Apple buttons
-
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  padding: EdgeInsets.symmetric(
-                      horizontal: getHorizPadding(context)),
-                  margin:
-                  const EdgeInsets.only(left: 50, bottom: 30, right: 50),
-                  child: Image.asset('images/gs.png'),
-                ),
-                SizedBox(
-                  height: getSizeBoxHeight(context),
-                ),
-
-                //Register Now
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      'Not a member?',
-                      style: TextStyle(color: Colors.black87, fontSize: 16),
-                    ),
-                    SizedBox(width: 10,),
-                    Text(
-                      'Register Now!!',
-                      style: TextStyle(color: Colors.blue, fontSize: 16),
-                    ),
-                  ],
                 ),
               ],
             ),
@@ -267,3 +224,4 @@ class _LoginState extends State<Login> {
     );
   }
 }
+

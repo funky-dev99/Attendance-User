@@ -8,9 +8,6 @@ import 'package:attend_user/pages/profile.dart';
 import 'package:attend_user/pages/setting.dart';
 import 'package:flutter/material.dart';
 
-
-
-
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
@@ -49,29 +46,39 @@ class HomePage extends StatelessWidget {
           },
         ),
         actions: [
-          IconButton(icon: Image.asset("images/pro.png"),
+          IconButton(
+            icon: Image.asset("images/pro.png"),
             tooltip: 'View Profile',
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));},),
-
-          IconButton(icon: const Icon(Icons.notifications_active_outlined),color: Colors.black,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilePage()),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.notifications_active_outlined),
+            color: Colors.black,
             tooltip: 'Notifications',
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationPage()));},)
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationPage()),
+              );
+            },
+          ),
         ],
         elevation: 0.0,
       ),
-
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(20.0),
+      body: Container(
+        padding: EdgeInsets.all(20.0),
+        child: Expanded(
           child: GridView.count(
             crossAxisCount: 2,
             children: List.generate(6, (index) {
-              return _buildContainer(index, context); // Pass the context to _buildContainer
+              return _buildContainer(index, context);
             }),
           ),
-
         ),
       ),
     );
@@ -85,10 +92,9 @@ class HomePage extends StatelessWidget {
         height: 145.0,
         child: MaterialButton(
           onPressed: () {
-            // Replace with your own logic for each container
             switch (index) {
               case 0:
-                _handleContainer0Pressed(context); // Pass the context to _handleContainerXPressed methods
+                _handleContainer0Pressed(context);
                 break;
               case 1:
                 _handleContainer1Pressed(context);
@@ -132,50 +138,46 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  void _handleContainer0Pressed(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => AttendanceMain()),
+    );
+  }
+
+  void _handleContainer1Pressed(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LeaveMain()),
+    );
+  }
+
+  void _handleContainer2Pressed(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ClaimPage()),
+    );
+  }
+
+  void _handleContainer3Pressed(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PaySlipPage()),
+    );
+  }
+
+  void _handleContainer4Pressed(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => AskPage()),
+    );
+  }
+
+  void _handleContainer5Pressed(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Settings()),
+    );
+  }
 }
-
-
-// Separate onPressed functions for each container
-void _handleContainer0Pressed(BuildContext context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => AttendanceMain()), // Replace NextPage with the desired page widget
-  );
-}
-
-void _handleContainer1Pressed(BuildContext context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => LeaveMain()), // Replace NextPage with the desired page widget
-  );
-}
-
-void _handleContainer2Pressed(BuildContext context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => ClaimPage()), // Replace NextPage with the desired page widget
-  );
-}
-
-void _handleContainer3Pressed(BuildContext context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => PaySlipPage()), // Replace NextPage with the desired page widget
-  );
-}
-
-void _handleContainer4Pressed(BuildContext context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => AskPage()), // Replace NextPage with the desired page widget
-  );
-}
-
-void _handleContainer5Pressed(BuildContext context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => Settings()), // Replace NextPage with the desired page widget
-  );
-}
-
-
