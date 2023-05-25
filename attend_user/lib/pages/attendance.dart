@@ -26,7 +26,8 @@ class AttendanceMain extends StatelessWidget {
           },
         ),
         actions: [
-          IconButton(icon: Image.asset("images/pro.png"),
+          IconButton(icon: Icon(Icons.person),
+            color: Colors.black,
             tooltip: 'View Profile',
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) =>  ProfilePage()));},)

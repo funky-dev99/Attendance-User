@@ -6,9 +6,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../home.dart';
 
-
-
-
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
 
@@ -95,7 +92,6 @@ class _LoginState extends State<Login> {
 
     return false; // Default return false if login fails
   }
-
 
   void snackBar(BuildContext context, String message, Color color) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -224,4 +220,3 @@ class _LoginState extends State<Login> {
     );
   }
 }
-

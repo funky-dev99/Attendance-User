@@ -81,7 +81,8 @@ class _AttendLocState extends State<AttendLoc> {
           },
         ),
         actions: [
-          IconButton(icon: Image.asset("images/pro.png"),
+          IconButton(icon: Icon(Icons.person),
+      color: Colors.black,
             tooltip: 'View Profile',
             onPressed: (){},)
         ],

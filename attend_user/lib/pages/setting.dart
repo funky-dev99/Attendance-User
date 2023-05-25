@@ -37,18 +37,7 @@ class _SettingsState extends State<Settings> {
             );
           },
         ),
-        actions: [
-          IconButton(
-            icon: Image.asset("images/pro.png"),
-            tooltip: 'View Profile',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ProfilePage()),
-              );
-            },
-          ),
-        ],
+
         elevation: 0.0,
       ),
       body: Padding(

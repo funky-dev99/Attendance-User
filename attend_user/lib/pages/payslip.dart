@@ -31,7 +31,8 @@ class PaySlipPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Image.asset("images/pro.png"),
+            icon: Icon(Icons.person),
+            color: Colors.black,
             tooltip: 'View Profile',
             onPressed: () {
               Navigator.push(context,

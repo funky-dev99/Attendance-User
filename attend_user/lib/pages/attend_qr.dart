@@ -74,7 +74,8 @@ class _AttendQrState extends State<AttendQr> {
         ),
         actions: [
           IconButton(
-            icon: Image.asset("images/pro.png"),
+            icon: Icon(Icons.person),
+            color: Colors.black,
             tooltip: 'View Profile',
             onPressed: () {
               Navigator.push(

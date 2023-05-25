@@ -2,6 +2,7 @@ import 'package:attend_user/pages/askpage.dart';
 import 'package:attend_user/pages/attendance.dart';
 import 'package:attend_user/pages/claim_page.dart';
 import 'package:attend_user/pages/leave_main.dart';
+import 'package:attend_user/pages/login.dart';
 import 'package:attend_user/pages/notification.dart';
 import 'package:attend_user/pages/payslip.dart';
 import 'package:attend_user/pages/profile.dart';
@@ -39,7 +40,8 @@ class HomePage extends StatelessWidget {
           style: TextStyle(color: Colors.black, fontSize: 22),
         ),
         leading: IconButton(
-          icon: Image.asset("images/home.png"),
+          icon:  Icon(Icons.home_rounded),
+        color: Colors.black,
           onPressed: () {
             // Navigator.push(
             //     context, MaterialPageRoute(builder: (context) => HomePage()));
@@ -47,7 +49,8 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Image.asset("images/pro.png"),
+            icon: Icon(Icons.person),
+            color: Colors.black,
             tooltip: 'View Profile',
             onPressed: () {
               Navigator.push(
@@ -64,6 +67,17 @@ class HomePage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => NotificationPage()),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.login_outlined),
+            color: Colors.black,
+            tooltip: 'Notifications',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Login()),
               );
             },
           ),
