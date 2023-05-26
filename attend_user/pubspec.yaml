@@ -47,6 +47,7 @@ dependencies:
   image_picker: ^0.8.4+4
   flutter_pdfview: any
   url_launcher: any
+  slide_to_act: ^2.0.1
 
 
 dev_dependencies:
