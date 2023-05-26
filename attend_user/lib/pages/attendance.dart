@@ -39,28 +39,72 @@ class AttendanceMain extends StatelessWidget {
 
       body: Center(
         child: Column(
-
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: getSizeBoxHeightL(context),),
-
             MaterialButton(
-              onPressed: (){
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => const AttendLoc()));
+              onPressed: () { Navigator.push(
+                              context, MaterialPageRoute(builder: (context) => const AttendLoc())); // Add your logic here for the first button
               },
-              child: Image.asset('images/wloc.png'),
+              child: Column(
+                children: [
+                  Image.asset(
+                    'images/wloc.png',
+                    height: 110,
+                    width: 170,
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Mark With Location',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ],
+              ),
+              padding: EdgeInsets.all(10),
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(
+                  color: Colors.grey, // Gray border color
+                  width: 2, // Border width
+                ),
+              ),
+              minWidth: 215,
+              height: 170,
+              color: Colors.white, // White background color
             ),
-
-            SizedBox(height: getSizeBoxHeight(context),),
-
+            SizedBox(height: getSizeBoxHeightL(context)),
             MaterialButton(
-              onPressed: (){
+              onPressed: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => const AttendQr()));
               },
-              child: Image.asset('images/wqr.png'),
+              child: Column(
+                children: [
+                  Image.asset(
+                    'images/wqr.png',
+                    height: 110,
+                    width: 170,
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Mark With QR',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ],
+              ),
+              padding: EdgeInsets.all(0),
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(
+                  color: Colors.grey, // Gray border color
+                  width: 2, // Border width
+                ),
+              ),
+              minWidth: 215,
+              height: 170,
+              color: Colors.white, // White background color
             ),
-
           ],
         ),
       ),
