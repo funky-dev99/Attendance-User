@@ -105,22 +105,29 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Future<void> checkLoginState() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String loginState = prefs.getString('login_state') ?? '0';
 
-    if (loginState == '1') {
-      // User is already logged in, navigate to the home page
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => HomePage()),
-      );
-    }
+  Future<void> saveLoginStatus(bool isLoggedIn) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isLoggedIn', isLoggedIn);
   }
+  // Don't erase
+  // Future<void> checkLoginState() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   String loginState = prefs.getString('login_state') ?? '0';
+  //
+  //   if (loginState == '1') {
+  //     // User is already logged in, navigate to the home page
+  //     Navigator.of(context).pushReplacement(
+  //       MaterialPageRoute(builder: (context) => HomePage()),
+  //     );
+  //   }
+  // }
+
 
   @override
   void initState() {
     super.initState();
-    checkLoginState();
+    // checkLoginState(); Don't erase
   }
 
   @override
@@ -201,6 +208,7 @@ class _LoginState extends State<Login> {
                       MaterialButton(
                         onPressed: () {
                           setState(() {
+                            saveLoginStatus(true);
                             userIdController.text.isEmpty ? userIdValidate = true : userIdValidate = false;
                             usernameController.text.isEmpty ? userNameValidate = true : userNameValidate = false;
                             passwordController.text.isEmpty ? passwordValidate = true : passwordValidate = false;
