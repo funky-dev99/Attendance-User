@@ -159,6 +159,7 @@ class _LoginState extends State<Login> {
                     children: [
                       //UserID TextField
                       TextField(
+                        textInputAction: TextInputAction.next,
                         controller: userIdController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -171,6 +172,7 @@ class _LoginState extends State<Login> {
                       ),
                       //Username TextField
                       TextField(
+                        textInputAction: TextInputAction.next,
                         controller: usernameController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -183,6 +185,7 @@ class _LoginState extends State<Login> {
                       ),
                       //Password TextField
                       TextField(
+                        textInputAction: TextInputAction.done,
                         controller: passwordController,
                         obscureText: true,
                         decoration: InputDecoration(
