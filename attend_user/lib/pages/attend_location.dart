@@ -114,6 +114,15 @@ class _AttendLocState extends State<AttendLoc> {
           children: [
             SizedBox(height: getSizeBoxHeightL(context)),
 
+            Image.asset(
+              "images/location.gif",
+              height: 160.0,
+              width: 160.0,
+            ),
+
+            SizedBox(height: getSizeBoxHeight(context)),
+
+
             Text(_timeString,style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
 
             TextField(
