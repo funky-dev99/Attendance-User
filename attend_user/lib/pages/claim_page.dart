@@ -221,8 +221,7 @@ class _ClaimPageState extends State<ClaimPage> {
                 print('Note: $desController');
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.black, // Sets the background color
-                onPrimary: Colors.white, // Sets the text color
+                foregroundColor: Colors.white, backgroundColor: Colors.black, // Sets the text color
                 minimumSize: const Size(150, 50), // Sets the minimum size of the button
               ),
               child: const

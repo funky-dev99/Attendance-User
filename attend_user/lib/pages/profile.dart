@@ -15,6 +15,10 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   bool isObscurePassword = true;
   File? _imageFile;
+  String? id;
+  String? fullName;
+  String? email;
+  String? password;
 
   Future<void> _pickImage() async {
     final pickedImage =
@@ -25,6 +29,13 @@ class _ProfilePageState extends State<ProfilePage> {
         _imageFile = File(pickedImage.path);
       });
     }
+  }
+
+  void submitForm() {
+    print('ID: $id');
+    print('Full Name: $fullName');
+    print('Email: $email');
+    print('Password: $password');
   }
 
   @override
@@ -40,8 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
           icon: Image.asset("images/back.png"),
           onPressed: () {
             Navigator.push(
-
-                context, MaterialPageRoute(builder: (context) =>  HomePage()));
+                context, MaterialPageRoute(builder: (context) => HomePage()));
           },
         ),
         elevation: 0.0,
@@ -91,16 +101,17 @@ class _ProfilePageState extends State<ProfilePage> {
                           height: 40,
                           width: 40,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(width: 4, color: Colors.white),
-                              color: Colors.blue),
+                            shape: BoxShape.circle,
+                            border: Border.all(width: 4, color: Colors.white),
+                            color: Colors.blue,
+                          ),
                           child: const Icon(
                             Icons.edit,
                             color: Colors.white,
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -123,23 +134,27 @@ class _ProfilePageState extends State<ProfilePage> {
                             letterSpacing: 2,
                             color: Colors.white)),
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                        padding: const EdgeInsets.symmetric(horizontal: 50),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
+                      backgroundColor: Colors.red,
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: submitForm,
                     child: const Text("Submit",
                         style: TextStyle(
                             fontSize: 15,
                             letterSpacing: 2,
                             color: Colors.white)),
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        padding: const EdgeInsets.symmetric(horizontal: 50),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
+                      backgroundColor: Colors.black,
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
                   ),
                 ],
               )
@@ -160,10 +175,34 @@ class _ProfilePageState extends State<ProfilePage> {
       padding: const EdgeInsets.only(bottom: 30),
       child: TextField(
         obscureText: isPasswordTextField ? isObscurePassword : false,
+        onChanged: (value) {
+          setState(() {
+            switch (labelText) {
+              case "ID":
+                id = value;
+                break;
+              case "Full Name":
+                fullName = value;
+                break;
+              case "Email":
+                email = value;
+                break;
+              case "Password":
+                password = value;
+                break;
+            }
+          });
+        },
         decoration: InputDecoration(
           suffixIcon: isPasswordTextField
               ? IconButton(
-            icon: const Icon(
+            icon: isObscurePassword
+                ? const Icon(
+              Icons.visibility_off,
+              color: Colors.grey,
+            )
+                : const Icon(
+              //Icons.visibility_off,
               Icons.remove_red_eye,
               color: Colors.grey,
             ),
@@ -184,7 +223,7 @@ class _ProfilePageState extends State<ProfilePage> {
             color: Colors.grey,
           ),
           labelStyle: const TextStyle(
-            fontSize: 20, // Updated font size
+            fontSize: 20, // font size
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
