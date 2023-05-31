@@ -150,7 +150,7 @@ class _AttendLocState extends State<AttendLoc> {
                   //You can format date as per your need
 
                   setState(() {
-                    dateController.text = formattedDate; //set foratted date to TextField value.
+                    dateController.text = formattedDate; //set formatted date to TextField value.
                   });
                 }else{
                   print("Date is not selected");
