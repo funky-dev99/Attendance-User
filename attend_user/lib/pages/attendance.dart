@@ -50,7 +50,7 @@ class AttendanceMain extends StatelessWidget {
                   Image.asset(
                     'images/wloc.png',
                     height: 110,
-                    width: 170,
+                    width: 190,
                   ),
                   SizedBox(height: 10),
                   Text(
@@ -83,7 +83,7 @@ class AttendanceMain extends StatelessWidget {
                   Image.asset(
                     'images/wqr.png',
                     height: 110,
-                    width: 170,
+                    width: 190,
                   ),
                   SizedBox(height: 10),
                   Text(
