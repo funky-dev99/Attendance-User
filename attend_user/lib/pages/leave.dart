@@ -17,6 +17,7 @@ class _LeaveState extends State<Leave> {
   String selectedDayPart = '';
   TextEditingController fromdateController = TextEditingController();
   TextEditingController todateController = TextEditingController();
+  String uploadedFilePath = '';
 
   final List<String> _leaveTypes = [
     'Leave Type 1',
@@ -323,6 +324,10 @@ class _LeaveState extends State<Leave> {
 
                 if (result != null) {
                   PlatformFile file = result.files.first;
+                  setState(() {
+                    uploadedFilePath = file.path ?? '';
+                  });
+
                   print('File path: ${file.path}');
                   print('File name: ${file.name}');
                   print('File size: ${file.size}');
@@ -345,8 +350,14 @@ class _LeaveState extends State<Leave> {
                 ), // Background color
               ),
             ),
+            if (uploadedFilePath.isNotEmpty) // Display the uploaded file path if available
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text('Uploaded File: $uploadedFilePath'),
+              ),
+
             SizedBox(
-              height: getSizeBoxHeightL(context),
+              height: getSizeBoxHeight(context),
             ),
 
 

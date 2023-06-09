@@ -15,6 +15,7 @@ class ClaimPage extends StatefulWidget {
 class _ClaimPageState extends State<ClaimPage> {
   String selectedClaimType = '';
   final desController = TextEditingController();
+  String uploadedFilePath = '';
 
   final List<String> _claimTypes = [
     'Claim Type 1',
@@ -187,6 +188,10 @@ class _ClaimPageState extends State<ClaimPage> {
 
                 if (result != null) {
                   PlatformFile file = result.files.first;
+                  setState(() {
+                    uploadedFilePath = file.path ?? '';
+                  });
+
                   print('File path: ${file.path}');
                   print('File name: ${file.name}');
                   print('File size: ${file.size}');
@@ -209,11 +214,16 @@ class _ClaimPageState extends State<ClaimPage> {
                 ), // Background color
               ),
             ),
-
+            if (uploadedFilePath.isNotEmpty) // Display the uploaded file path if available
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text('Uploaded File: $uploadedFilePath'),
+              ),
 
             SizedBox(
               height: getSizeBoxHeightL(context),
             ),
+
 
             ElevatedButton(
               onPressed: () {
@@ -229,6 +239,7 @@ class _ClaimPageState extends State<ClaimPage> {
 
                   style: TextStyle(fontSize: 18,),),
             )
+
 
 
 
