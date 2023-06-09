@@ -12,7 +12,7 @@ class AttendanceRec extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Text(
-          "Attendance",
+          "Attendance Record",
           style: TextStyle(color: Colors.black, fontSize: 22),
         ),
         leading: IconButton(

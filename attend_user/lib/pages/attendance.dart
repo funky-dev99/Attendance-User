@@ -1,4 +1,6 @@
+import 'package:attend_user/pages/attend_location_out.dart';
 import 'package:attend_user/pages/attend_qr.dart';
+import 'package:attend_user/pages/attendance_rec.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -23,27 +25,36 @@ class AttendanceMain extends StatelessWidget {
           iconSize: 20,
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) =>  HomePage()));
+                context, MaterialPageRoute(builder: (context) => HomePage()));
           },
         ),
         actions: [
-          IconButton(icon: Icon(Icons.person, size: 30.0,),
+          IconButton(
+            icon: Icon(
+              Icons.person,
+              size: 30.0,
+            ),
             color: Colors.black,
             tooltip: 'View Profile',
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>  ProfilePage()));},)
-
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()));
+            },
+          )
         ],
         elevation: 0.0,
       ),
-
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             MaterialButton(
-              onPressed: () { Navigator.push(
-                              context, MaterialPageRoute(builder: (context) => const AttendLoc())); // Add your logic here for the first button
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const AttendLoc())); // Add your logic here for the first button
               },
               child: Column(
                 children: [
@@ -72,11 +83,11 @@ class AttendanceMain extends StatelessWidget {
               height: 170,
               color: Colors.white, // White background color
             ),
-            SizedBox(height: getSizeBoxHeightL(context)),
+            SizedBox(height: getSizeBoxHeight(context)),
             MaterialButton(
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => const AttendQr()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const AttendQr()));
               },
               child: Column(
                 children: [
@@ -93,6 +104,42 @@ class AttendanceMain extends StatelessWidget {
                 ],
               ),
               padding: EdgeInsets.all(0),
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(
+                  color: Colors.grey, // Gray border color
+                  width: 2, // Border width
+                ),
+              ),
+              minWidth: 215,
+              height: 170,
+              color: Colors.white, // White background color
+            ),
+            SizedBox(height: getSizeBoxHeight(context)),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                        const AttendanceRec())); // Add your logic here for the first button
+              },
+              child: Column(
+                children: [
+                  Image.asset(
+                    'images/wloc.png',
+                    height: 110,
+                    width: 190,
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Attendance Record',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ],
+              ),
+              padding: EdgeInsets.all(10),
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
