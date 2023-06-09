@@ -133,9 +133,15 @@ class _AttendLocOutState extends State<AttendLocOut> {
               SizedBox(height: 25),
 
 
-              ElevatedButton(
+              MaterialButton(
                 onPressed: _getUserLocation,
-                child: const Text('Check Location'),
+                child: const Text('Get Your Location',style: TextStyle(color: Colors.white),),
+                minWidth: 150.0,
+                height: 50.0,
+                color: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
               ),
               const SizedBox(height: 25),
               _userLocation != null
@@ -151,13 +157,20 @@ class _AttendLocOutState extends State<AttendLocOut> {
 
               SizedBox(height: 25),
 
-              ElevatedButton(
+              MaterialButton(
                 onPressed: (){
                   print('Latitude: ${_userLocation?.latitude}');
                   print('Longitude: ${_userLocation?.longitude}');
                   print('Time:$_timeString');
                 },
-                child: const Text('Submit Attendance'),)
+                child: const Text('Mark Your Out'),
+                minWidth: 150.0,
+                height: 50.0,
+                color: Colors.redAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+              )
 
 
             ],
