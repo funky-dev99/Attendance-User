@@ -1,3 +1,4 @@
+import 'package:attend_user/pages/attendance.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class AttendanceRec extends StatelessWidget {
           iconSize: 20,
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) =>  HomePage()));
+                context, MaterialPageRoute(builder: (context) =>  AttendanceMain()));
           },
         ),
         actions: [

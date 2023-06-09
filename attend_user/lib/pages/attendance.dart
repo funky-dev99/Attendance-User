@@ -1,4 +1,3 @@
-import 'package:attend_user/pages/attend_location_out.dart';
 import 'package:attend_user/pages/attend_qr.dart';
 import 'package:attend_user/pages/attendance_rec.dart';
 import 'package:attend_user/pages/profile.dart';
@@ -56,6 +55,18 @@ class AttendanceMain extends StatelessWidget {
                         builder: (context) =>
                             const AttendLoc())); // Add your logic here for the first button
               },
+              padding: EdgeInsets.all(10),
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(
+                  color: Colors.grey, // Gray border color
+                  width: 1, // Border width
+                ),
+              ),
+              minWidth: 200,
+              height: 170,
+              color: Colors.white,
               child: Column(
                 children: [
                   Image.asset(
@@ -69,19 +80,7 @@ class AttendanceMain extends StatelessWidget {
                     style: TextStyle(fontSize: 18),
                   ),
                 ],
-              ),
-              padding: EdgeInsets.all(10),
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-                side: BorderSide(
-                  color: Colors.grey, // Gray border color
-                  width: 2, // Border width
-                ),
-              ),
-              minWidth: 215,
-              height: 170,
-              color: Colors.white, // White background color
+              ), // White background color
             ),
             SizedBox(height: getSizeBoxHeight(context)),
             MaterialButton(
@@ -89,6 +88,18 @@ class AttendanceMain extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const AttendQr()));
               },
+              padding: EdgeInsets.all(0),
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(
+                  color: Colors.grey, // Gray border color
+                  width: 1, // Border width
+                ),
+              ),
+              minWidth: 210,
+              height: 170,
+              color: Colors.white,
               child: Column(
                 children: [
                   Image.asset(
@@ -102,19 +113,7 @@ class AttendanceMain extends StatelessWidget {
                     style: TextStyle(fontSize: 18),
                   ),
                 ],
-              ),
-              padding: EdgeInsets.all(0),
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-                side: BorderSide(
-                  color: Colors.grey, // Gray border color
-                  width: 2, // Border width
-                ),
-              ),
-              minWidth: 215,
-              height: 170,
-              color: Colors.white, // White background color
+              ), // White background color
             ),
             SizedBox(height: getSizeBoxHeight(context)),
             MaterialButton(
@@ -125,10 +124,22 @@ class AttendanceMain extends StatelessWidget {
                         builder: (context) =>
                         const AttendanceRec())); // Add your logic here for the first button
               },
+              padding: EdgeInsets.all(10),
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(
+                  color: Colors.grey, // Gray border color
+                  width: 1, // Border width
+                ),
+              ),
+              minWidth: 200,
+              height: 170,
+              color: Colors.white,
               child: Column(
                 children: [
                   Image.asset(
-                    'images/wloc.png',
+                    'images/rec.png',
                     height: 110,
                     width: 190,
                   ),
@@ -138,19 +149,7 @@ class AttendanceMain extends StatelessWidget {
                     style: TextStyle(fontSize: 18),
                   ),
                 ],
-              ),
-              padding: EdgeInsets.all(10),
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-                side: BorderSide(
-                  color: Colors.grey, // Gray border color
-                  width: 2, // Border width
-                ),
-              ),
-              minWidth: 215,
-              height: 170,
-              color: Colors.white, // White background color
+              ), // White background color
             ),
           ],
         ),
