@@ -5,7 +5,7 @@ import 'package:attend_user/pages/mark_out.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
-import '../home.dart';
+
 
 class AttendanceRec extends StatelessWidget {
   const AttendanceRec({Key? key}) : super(key: key);
@@ -26,12 +26,12 @@ class AttendanceRec extends StatelessWidget {
             iconSize: 20,
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => AttendanceMain()));
+                  MaterialPageRoute(builder: (context) => const AttendanceMain()));
             },
           ),
           actions: [
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.person,
                 size: 30.0,
               ),
@@ -39,7 +39,7 @@ class AttendanceRec extends StatelessWidget {
               tooltip: 'View Profile',
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ProfilePage()));
+                    MaterialPageRoute(builder: (context) => const ProfilePage()));
               },
             )
           ],
