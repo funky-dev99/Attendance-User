@@ -45,7 +45,7 @@ class AttendanceMain extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             MaterialButton(
               onPressed: () {
@@ -55,26 +55,26 @@ class AttendanceMain extends StatelessWidget {
                         builder: (context) =>
                             const AttendLoc())); // Add your logic here for the first button
               },
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
-                side: BorderSide(
+                side: const BorderSide(
                   color: Colors.grey, // Gray border color
                   width: 1, // Border width
                 ),
               ),
               minWidth: 200,
-              height: 170,
+              height: 100,
               color: Colors.white,
               child: Column(
                 children: [
                   Image.asset(
                     'images/wloc.png',
-                    height: 110,
+                    height: 90,
                     width: 190,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     'Mark With Location',
                     style: TextStyle(fontSize: 18),
@@ -88,7 +88,7 @@ class AttendanceMain extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const AttendQr()));
               },
-              padding: EdgeInsets.all(0),
+              padding: EdgeInsets.all(10),
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -97,14 +97,14 @@ class AttendanceMain extends StatelessWidget {
                   width: 1, // Border width
                 ),
               ),
-              minWidth: 210,
-              height: 170,
+              minWidth: 200,
+              height: 100,
               color: Colors.white,
               child: Column(
                 children: [
                   Image.asset(
                     'images/wqr.png',
-                    height: 110,
+                    height: 90,
                     width: 190,
                   ),
                   SizedBox(height: 10),
@@ -134,13 +134,13 @@ class AttendanceMain extends StatelessWidget {
                 ),
               ),
               minWidth: 200,
-              height: 170,
+              height: 100,
               color: Colors.white,
               child: Column(
                 children: [
                   Image.asset(
                     'images/rec.png',
-                    height: 110,
+                    height: 90,
                     width: 190,
                   ),
                   SizedBox(height: 10),
