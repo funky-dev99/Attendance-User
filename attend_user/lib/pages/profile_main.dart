@@ -37,43 +37,60 @@ class ProfileMainPage extends StatelessWidget {
         ),
         elevation: 0.0,
       ),
-      body: Container(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Container(
-                width: 130,
-                height: 130,
-                child: CircleAvatar(
-                  radius: 80,
-                  backgroundImage: imageFile != null
-                      ? FileImage(imageFile!)
-                      : const NetworkImage(
-                    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
-                  ) as ImageProvider<Object>,
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: Container(
+                  width: 130,
+                  height: 130,
+                  child: CircleAvatar(
+                    radius: 80,
+                    backgroundImage: imageFile != null
+                        ? FileImage(imageFile!)
+                        : const NetworkImage(
+                      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
+                    ) as ImageProvider<Object>,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'Company ID: $id',
-              style: const TextStyle(fontSize: 18),
-            ),
-            Text(
-              'Full Name: $fullName',
-              style: const TextStyle(fontSize: 18),
-            ),
-            Text(
-              'Company Email: $email',
-              style: const TextStyle(fontSize: 18),
-            ),
-            Text(
-              'My Password: $password',
-              style: const TextStyle(fontSize: 18),
-            ),
-          ],
+              const SizedBox(height: 50),
+              Text(
+                'Company ID: $id',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Full Name: $fullName',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Company Email: $email',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'My Password: $password',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
