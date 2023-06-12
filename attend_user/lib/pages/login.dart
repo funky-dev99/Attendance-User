@@ -170,7 +170,7 @@ class _LoginState extends State<Login> {
                         controller: userIdController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: 'UserID',
+                          labelText: 'User_ID',
                           errorText: userIdValidate ? 'Value Can\'t Be Empty' : null,
                         ),
                       ),
@@ -183,7 +183,7 @@ class _LoginState extends State<Login> {
                         controller: usernameController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: 'Username',
+                          labelText: 'User_Name',
                           errorText: userNameValidate ? 'Value Can\'t Be Empty' : null,
                         ),
                       ),
