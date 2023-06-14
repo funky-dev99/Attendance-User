@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'attendance.dart';
 
@@ -158,10 +159,21 @@ class _AttendLocOutState extends State<AttendLocOut> {
               SizedBox(height: 25),
 
               MaterialButton(
-                onPressed: (){
+                onPressed: () async {
                   print('Latitude: ${_userLocation?.latitude}');
                   print('Longitude: ${_userLocation?.longitude}');
                   print('Time:$_timeString');
+
+                  // Clear shared preferences login data
+                  SharedPreferences prefs = await SharedPreferences.getInstance();
+                  await prefs.clear();
+
+                  // Navigate back to the Login screen
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => AttendanceMain()),
+                        (route) => false, // This will remove all the routes until the screen
+                  );
                 },
                 child: const Text('Mark Your Out'),
                 minWidth: 150.0,
