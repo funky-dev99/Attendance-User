@@ -1,11 +1,13 @@
 
+
 import 'dart:async';
-
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:location/location.dart';
+import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:location/location.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'attend_location_out.dart';
 import 'attendance.dart';
 
 class AttendLoc extends StatefulWidget {
@@ -16,29 +18,34 @@ class AttendLoc extends StatefulWidget {
 }
 
 class _AttendLocState extends State<AttendLoc> {
-  // TextEditingController dateController = TextEditingController();
   TextEditingController dateController = TextEditingController();
+  late String _timeString;
+  late bool _serviceEnabled;
+  late PermissionStatus _permissionGranted;
+  LocationData? _userLocation;
 
   @override
   void initState() {
     dateController.text = "";
     _timeString = _formatDateTime(DateTime.now());
-    Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime()); //set the initial value of text field
+    Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
     super.initState();
   }
 
+  void _getTime() {
+    final DateTime now = DateTime.now();
+    final String formattedDateTime = _formatDateTime(now);
+    setState(() {
+      _timeString = formattedDateTime;
+    });
+  }
 
-
-  late String _timeString;
-
-  late bool _serviceEnabled;
-  late PermissionStatus _permissionGranted;
-
-  LocationData? _userLocation;
+  String _formatDateTime(DateTime dateTime) {
+    return DateFormat('hh:mm:ss').format(dateTime);
+  }
 
   Future<void> _getUserLocation() async {
     Location location = Location();
-
     _serviceEnabled = await location.serviceEnabled();
     if (_serviceEnabled) {
       _serviceEnabled = await location.requestService();
@@ -46,7 +53,6 @@ class _AttendLocState extends State<AttendLoc> {
         return;
       }
     }
-
     _permissionGranted = await location.hasPermission();
     if (_permissionGranted == PermissionStatus.denied) {
       _permissionGranted = await location.requestPermission();
@@ -54,16 +60,99 @@ class _AttendLocState extends State<AttendLoc> {
         return;
       }
     }
-
     final locationData = await location.getLocation();
     setState(() {
       _userLocation = locationData;
     });
+  }
 
-    // if (_userLocation != null) {
-    //   print('Latitude: ${_userLocation?.latitude}');
-    //   print('Longitude: ${_userLocation?.longitude}');
-    // }
+  Future<bool> markInAttendanceRecord(BuildContext context, var companyId,
+      var companyName, var userId, var userName, var markIn, var lat,
+      var long) async {
+    var url = "http://api.talent.cbs.lk/createAttendanceRecord.php";
+    var atUnicId = await getAttendanceUnicId();
+    var data = {
+      "unic_id": '$atUnicId',
+      "company_id": '$companyId',
+      "company_name": '$companyName',
+      "user_id": '$userId',
+      "user_name": '$userName',
+      "mark_in": '$markIn',
+      "mark_in_lat": '$lat',
+      "mark_in_long": '$long',
+      "mark_out": '0',
+      "mark_out_lat": '',
+      "mark_out_long": '',
+      "delete_row": '0',
+      "delete_by_id": '',
+      "update_by_id": '',
+    };
+
+    http.Response res = await http.post(
+      Uri.parse(url),
+      body: data,
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      encoding: Encoding.getByName("utf-8"),
+    );
+    print (res.statusCode.toString());
+
+    if (res.statusCode.toString() == "200") {
+      if (jsonDecode(res.body) == "Account already exists") {
+        // Handle account already exists case
+      } else if (jsonDecode(res.body) == "true") {
+        await saveMarkInAttendance(
+            '$atUnicId',
+            '$companyId',
+            '$companyName',
+            '$userId',
+            '$userName',
+            '$markIn',
+            '$lat',
+            '$long');
+        Navigator.of(context).pop(false);
+        snackBar(context, "Done", Colors.green);
+        return true;
+      }
+    } else {
+      snackBar(context, "Error", Colors.redAccent);
+      return false;
+    }
+    return true;
+  }
+
+  Future<int> getAttendanceUnicId() async {
+    int timestamp = DateTime
+        .now()
+        .millisecondsSinceEpoch;
+    int unicSupplierId = timestamp;
+    return unicSupplierId;
+  }
+
+  Future<bool> saveMarkInAttendance(var unicId, var companyId, var companyName,
+      var userId, var userName, var markIn, var markInLat,
+      var markInLong) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('unic_id', '$unicId');
+    prefs.setString('company_id', '$companyId');
+    prefs.setString('company_name', '$companyName');
+    prefs.setString('user_id', '$userId');
+    prefs.setString('user_name', '$userName');
+    prefs.setString('mark_in', '$markIn');
+    prefs.setString('mark_in_lat', '$markInLat');
+    prefs.setString('mark_in_long', '$markInLong');
+    return true;
+  }
+
+  void snackBar(BuildContext context, String message, Color color) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: color,
+      ),
+    );
   }
 
   @override
@@ -79,14 +168,21 @@ class _AttendLocState extends State<AttendLoc> {
           icon: Image.asset("images/back.png"),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => AttendanceMain()));
+              context,
+              MaterialPageRoute(builder: (context) => AttendanceMain()),
+            );
           },
         ),
         actions: [
-          IconButton(icon: Icon(Icons.person, size: 30.0,),
+          IconButton(
+            icon: Icon(
+              Icons.person,
+              size: 30.0,
+            ),
             color: Colors.black,
             tooltip: 'View Profile',
-            onPressed: (){},)
+            onPressed: () {},
+          )
         ],
       ),
       body: Center(
@@ -95,56 +191,46 @@ class _AttendLocState extends State<AttendLoc> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
               Text(_timeString),
-
               TextField(
-
-
-                controller: dateController, //editing controller of this TextField
+                controller: dateController,
                 decoration: const InputDecoration(
-
-                    icon: Icon(Icons.calendar_today), //icon of text field
-                    labelText: "Enter Date" //label text of field
+                  icon: Icon(Icons.calendar_today),
+                  labelText: "Enter Date",
                 ),
-                readOnly: true,  // when true user cannot edit text
+                readOnly: true,
                 onTap: () async {
                   DateTime? pickedDate = await showDatePicker(
-                      context: context,
-                      initialDate: DateTime.now(), //get today's date
-                      firstDate: DateTime(2000), //DateTime.now() - not to allow to choose before today.
-                      lastDate: DateTime(2101)
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2101),
                   );
 
-                  if(pickedDate != null ){
-                    print(pickedDate);  //get the picked date in the format => 2022-07-04 00:00:00.000
-                    String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate); // format date in required form here we use yyyy-MM-dd that means time is removed
-                    print(formattedDate); //formatted date output using intl package =>  2022-07-04
-                    //You can format date as per your need
-
+                  if (pickedDate != null) {
+                    String formattedDate = DateFormat('yyyy-MM-dd').format(
+                        pickedDate);
                     setState(() {
-                      dateController.text = formattedDate; //set foratted date to TextField value.
+                      dateController.text = formattedDate;
                     });
-                  }else{
+                  } else {
                     print("Date is not selected");
                   }
                 },
               ),
-
-
               SizedBox(height: 25),
-
-
               MaterialButton(
                 onPressed: _getUserLocation,
-                child: const Text('Get Your Location',style: TextStyle(color: Colors.white),),
+                child: const Text(
+                  'Get Your Location',
+                  style: TextStyle(color: Colors.white),
+                ),
                 minWidth: 150.0,
                 height: 50.0,
                 color: Colors.black,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-
               ),
               const SizedBox(height: 25),
               _userLocation != null
@@ -157,15 +243,44 @@ class _AttendLocState extends State<AttendLoc> {
               )
                   : const Text(
                   'Please enable location service and grant permission'),
-
               SizedBox(height: 25),
 
+
               MaterialButton(
-                onPressed: (){
-                  print('Latitude: ${_userLocation?.latitude}');
-                  print('Longitude: ${_userLocation?.longitude}');
-                  print('Time:$_timeString');
-                  Navigator.push(context, MaterialPageRoute(builder: (context) =>  AttendLocOut()));
+                onPressed: () async {
+                  if (_userLocation != null) {
+                    String unicId = await getAttendanceUnicId().toString();
+                    String companyId = '1234'; // Replace with your companyId value
+                    String companyName = 'Test'; // Replace with your companyName value
+                    String userId = '12345'; // Replace with your userId value
+                    String userName = 'test@gmail.com'; // Replace with your userName value
+                    String markIn = _timeString;
+                    String? markInLat = _userLocation?.latitude.toString();
+                    String? markInLong = _userLocation?.longitude.toString();
+                    print('Click');
+
+                    bool success = await markInAttendanceRecord(
+                      context,
+                      companyId,
+                      companyName,
+                      userId,
+                      userName,
+                      markIn,
+                      markInLat,
+                      markInLong,
+                    );
+
+                    if (success) {
+                      Navigator.of(context).pop(false);
+                      snackBar(context, "Done", Colors.green);
+                    } else {
+                      snackBar(context, "Error", Colors.redAccent);
+                    }
+                  } else {
+                    snackBar(context,
+                        "Please enable location service and grant permission",
+                        Colors.redAccent);
+                  }
                 },
                 child: const Text('Mark Your In'),
                 minWidth: 150.0,
@@ -174,27 +289,11 @@ class _AttendLocState extends State<AttendLoc> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-
-              )
-
-
+              ),
             ],
           ),
         ),
       ),
     );
-
-
-  }
-  void _getTime() {
-    final DateTime now = DateTime.now();
-    final String formattedDateTime = _formatDateTime(now);
-    setState(() {
-      _timeString = formattedDateTime;
-    });
-  }
-
-  String _formatDateTime(DateTime dateTime) {
-    return DateFormat('hh:mm:ss').format(dateTime);
   }
 }

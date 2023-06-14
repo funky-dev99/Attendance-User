@@ -42,7 +42,7 @@ dependencies:
   qr_flutter: ^4.0.0
   shared_preferences: ^2.1.1
   intl: ^0.17.0
-  http: any
+  http:
   file_picker: ^5.3.0
   image_picker: ^0.8.4+4
   flutter_pdfview: any
