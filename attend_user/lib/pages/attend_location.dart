@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:location/location.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'attend_location_out.dart';
 import 'attendance.dart';
 
 class AttendLoc extends StatefulWidget {
@@ -273,6 +274,9 @@ class _AttendLocState extends State<AttendLoc> {
                     if (success) {
                       Navigator.of(context).pop(false);
                       snackBar(context, "Done", Colors.green);
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (context) => AttendLocOut()));
+
                     } else {
                       snackBar(context, "Error", Colors.redAccent);
                     }
