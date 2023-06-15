@@ -111,13 +111,13 @@ class _SecondQrScanState extends State<SecondQrScan> {
                         onPressed: () async {
                           await controller?.resumeCamera();
                         },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          elevation: 0,
+                        ),
                         child: const Text(
                           'Resume',
                           style: TextStyle(fontSize: 15),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.transparent,
-                          elevation: 0,
                         ),
                       ),
                     ),
