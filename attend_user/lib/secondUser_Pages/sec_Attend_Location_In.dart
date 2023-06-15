@@ -1,3 +1,4 @@
+import 'package:attend_user/secondUser_Pages/sec_Attend_Location_Out.dart';
 import 'package:attend_user/secondUser_Pages/second_attendance.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
@@ -122,10 +123,10 @@ class _SecAttendLocINState extends State<SecAttendLocIN> {
         );
         Navigator.of(context).pop(false);
         snackBar(context, "Done", Colors.green);
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => AttendLocOut()),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SecAttendLocOUT()),
+        );
         return true;
       }
     } else {
@@ -180,10 +181,10 @@ class _SecAttendLocINState extends State<SecAttendLocIN> {
         markIn != null &&
         markInLat != null &&
         markInLong != null) {
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(builder: (context) => AttendLocOut()),
-      // );
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SecAttendLocOUT()),
+      );
     }
   }
 
@@ -318,11 +319,11 @@ class _SecAttendLocINState extends State<SecAttendLocIN> {
                     if (success) {
                       Navigator.of(context).pop(false);
                       snackBar(context, "Done", Colors.green);
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //       builder: (context) => AttendLocOut()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SecAttendLocOUT()),
+                      );
                     } else {
                       snackBar(context, "Error", Colors.redAccent);
                     }
