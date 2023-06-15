@@ -1,7 +1,7 @@
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
-import '../home.dart';
+import 'home.dart';
 
 class NotificationPage extends StatelessWidget {
   const NotificationPage({Key? key}) : super(key: key);

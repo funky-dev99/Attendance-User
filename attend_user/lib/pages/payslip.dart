@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../home.dart';
+import 'home.dart';
 import 'profile.dart';
 
 class PaySlipPage extends StatelessWidget {

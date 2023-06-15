@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import '../home.dart';
+import 'home.dart';
 
 class ProfileMainPage extends StatelessWidget {
   final String id;

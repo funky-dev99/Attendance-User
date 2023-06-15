@@ -2,12 +2,13 @@
 //username = test@gmail.com
 //password = 111111
 
+import 'package:attend_user/secondUser_Pages/second_home.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../home.dart';
+import 'pages/home.dart';
 
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
@@ -74,7 +75,7 @@ class _LoginState extends State<Login> {
             context,
             MaterialPageRoute(builder: (context) => LayoutBuilder(
               builder: (context, constraints) {
-                return HomePage();
+                return SecondHome();
               },
             )),
           );

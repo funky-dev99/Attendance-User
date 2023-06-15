@@ -23,11 +23,11 @@
 //   }
 // }
 
-import 'package:attend_user/pages/login.dart';
+import 'package:attend_user/login.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'home.dart';
+import 'pages/home.dart';
 
 void main() {
   runApp(const MyApp());

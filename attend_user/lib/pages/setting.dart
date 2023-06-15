@@ -6,7 +6,7 @@ import 'package:attend_user/pages/privacy.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
-import '../home.dart';
+import 'home.dart';
 import 'notification.dart';
 
 class Settings extends StatefulWidget {
