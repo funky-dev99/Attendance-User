@@ -48,6 +48,7 @@ dependencies:
   flutter_pdfview: any
   url_launcher: any
   slide_to_act: ^2.0.1
+  qr_code_scanner: any
 
 
 dev_dependencies:
