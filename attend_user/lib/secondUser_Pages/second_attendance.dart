@@ -1,3 +1,4 @@
+import 'package:attend_user/secondUser_Pages/sec_Attend_Location_In.dart';
 import 'package:attend_user/secondUser_Pages/second_home.dart';
 import 'package:attend_user/secondUser_Pages/second_qr_page.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class SecondAttendMain extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.person,
               size: 30.0,
             ),
@@ -46,11 +47,11 @@ class SecondAttendMain extends StatelessWidget {
           children: [
             MaterialButton(
               onPressed: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) =>
-                //         const AttendLoc())); // Add your logic here for the first button
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                        const SecAttendLocIN())); // Add your logic here for the first button
               },
               padding: const EdgeInsets.all(10),
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
