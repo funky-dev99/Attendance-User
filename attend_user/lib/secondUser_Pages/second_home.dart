@@ -1,3 +1,4 @@
+import 'package:attend_user/secondUser_Pages/second_attendance.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -160,10 +161,10 @@ class SecondHome extends StatelessWidget {
   }
 
   void _handleContainer0Pressed(BuildContext context) {
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => AttendanceMain()),
-    // );
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SecondAttendMain()),
+    );
   }
 
   void _handleContainer1Pressed(BuildContext context) {

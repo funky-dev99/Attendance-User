@@ -24,6 +24,7 @@
 // }
 
 import 'package:attend_user/login.dart';
+import 'package:attend_user/secondUser_Pages/second_home.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
           final bool isLoggedIn = snapshot.data!;
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: isLoggedIn ? HomePage() : Login(),
+            home: isLoggedIn ? SecondHome(): Login(),
           );
         } else {
           return const MaterialApp(

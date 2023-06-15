@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SecondQr extends StatelessWidget {
-  const SecondQr({Key? key}) : super(key: key);
+class SecondQrScan extends StatelessWidget {
+  const SecondQrScan({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
