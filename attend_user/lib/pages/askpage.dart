@@ -12,17 +12,17 @@ class AskPage extends StatefulWidget {
 }
 
 class _AskPageState extends State<AskPage> {
-  String selectedDesignation = '';
+  // String selectedDesignation = '';
   final subjectController = TextEditingController();
   final desController = TextEditingController();
 
-  final List<String> _designations = [
-    'Designation 1',
-    'Designation 2',
-    'Designation 3',
-    'Designation 4',
-    'Designation 5',
-  ];
+  // final List<String> _designations = [
+  //   'Designation 1',
+  //   'Designation 2',
+  //   'Designation 3',
+  //   'Designation 4',
+  //   'Designation 5',
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,70 +61,70 @@ class _AskPageState extends State<AskPage> {
             ),
 
             //Claim Type Text
-            Row(
-              children: [
-                Container(
-                  padding: const EdgeInsets.only(left: 0.0),
-                  margin: const EdgeInsets.only(left: 10.0),
-                  child: const Text(
-                    'Designation :',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Container(
+            //       padding: const EdgeInsets.only(left: 0.0),
+            //       margin: const EdgeInsets.only(left: 10.0),
+            //       child: const Text(
+            //         'Designation :',
+            //         style: TextStyle(
+            //           fontSize: 18,
+            //           color: Colors.black,
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
 
             SizedBox(
               height: getSizeBoxHeight(context),
             ),
 
             //Claim type drop down box..
-            Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(left: 20),
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  width: 320,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[350], // Change the color to your desired color
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(
-                            0.5), // Change the shadow color if needed
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: const Offset(
-                            0, 3), // Adjust the offset for the drop shadow
-                      ),
-                    ],
-                  ),
-                  child: DropdownButton<String>(
-                    value:
-                    selectedDesignation.isNotEmpty ? selectedDesignation : null,
-                    hint: const Text('Select Designation'),
-                    onChanged: ( value) {
-                      setState(() {
-                        selectedDesignation = value ?? '';
-                      });
-                    },
-                    items: _designations.map((String designations) {
-                      return DropdownMenuItem<String>(
-                        value: designations,
-                        child: Text(designations),
-                      );
-                    }).toList(),
-
-
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: getSizeBoxHeightL(context),
-            ),
+            // Row(
+            //   children: [
+            //     Container(
+            //       margin: const EdgeInsets.only(left: 20),
+            //       padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            //       width: 320,
+            //       decoration: BoxDecoration(
+            //         color: Colors.grey[350], // Change the color to your desired color
+            //         boxShadow: [
+            //           BoxShadow(
+            //             color: Colors.grey.withOpacity(
+            //                 0.5), // Change the shadow color if needed
+            //             spreadRadius: 2,
+            //             blurRadius: 5,
+            //             offset: const Offset(
+            //                 0, 3), // Adjust the offset for the drop shadow
+            //           ),
+            //         ],
+            //       ),
+            //       child: DropdownButton<String>(
+            //         value:
+            //         selectedDesignation.isNotEmpty ? selectedDesignation : null,
+            //         hint: const Text('Select Designation'),
+            //         onChanged: ( value) {
+            //           setState(() {
+            //             selectedDesignation = value ?? '';
+            //           });
+            //         },
+            //         items: _designations.map((String designations) {
+            //           return DropdownMenuItem<String>(
+            //             value: designations,
+            //             child: Text(designations),
+            //           );
+            //         }).toList(),
+            //
+            //
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            // SizedBox(
+            //   height: getSizeBoxHeightL(context),
+            // ),
 
             Row(
               children: [
@@ -196,7 +196,7 @@ class _AskPageState extends State<AskPage> {
 
             ElevatedButton(
               onPressed: () {
-                print('Designation: $selectedDesignation');
+                // print('Designation: $selectedDesignation');
                 print('Subject: $subjectController');
                 print('Note: $desController');
               },
