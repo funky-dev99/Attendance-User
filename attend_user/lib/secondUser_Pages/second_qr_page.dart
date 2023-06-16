@@ -1,3 +1,4 @@
+import 'package:attend_user/secondUser_Pages/second_home.dart';
 import 'package:attend_user/secondUser_Pages/second_tabs/second_qr.dart';
 import 'package:attend_user/secondUser_Pages/second_tabs/second_qr_scan.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +21,8 @@ class SecondAttendQR extends StatelessWidget {
               icon: Image.asset("images/back.png"),
               iconSize: 20,
               onPressed: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (context) => const AttendanceMain()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) =>  SecondHome()));
               },
             ),
             actions: [
