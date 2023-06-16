@@ -164,7 +164,7 @@ class _LeaveState extends State<Leave> {
                   //You can format date as per your need
 
                   setState(() {
-                    todateController.text = formattedDate; //set foratted date to TextField value.
+                    todateController.text = formattedDate; //set formatted date to TextField value.
                   });
                 }else{
                   print("Date is not selected");
