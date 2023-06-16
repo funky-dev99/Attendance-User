@@ -240,6 +240,7 @@
 // }
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'home.dart';
@@ -258,7 +259,7 @@ class PaySlipPage extends StatelessWidget {
 
     // Get current month and year
     DateTime now = DateTime.now();
-    String monthYear = '${now.month}/${now.year}';
+    String monthYear = DateFormat('MMMM yyyy').format(now);
 
     return Scaffold(
       appBar: AppBar(
@@ -500,4 +501,5 @@ class PaySlipPage extends StatelessWidget {
     );
   }
 }
+
 
