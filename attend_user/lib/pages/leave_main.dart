@@ -274,6 +274,7 @@
 //     );
 //   }
 // }
+import 'package:attend_user/pages/leave_req_part.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -387,7 +388,7 @@ class LeaveMain extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Leave()),
+                              MaterialPageRoute(builder: (context) => LeaveReqPart()),
                             );
                           },
                           style: ElevatedButton.styleFrom(
@@ -449,7 +450,7 @@ class LeaveMain extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Leave()),
+                              MaterialPageRoute(builder: (context) => LeaveReqPart()),
                             );
                           },
                           style: ElevatedButton.styleFrom(
