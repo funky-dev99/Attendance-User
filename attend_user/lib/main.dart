@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
           final bool isLoggedIn = snapshot.data!;
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: isLoggedIn ? HomePage(): Login(),
+            home: isLoggedIn ? SecondHome(): Login(),
           );
         } else {
           return const MaterialApp(
