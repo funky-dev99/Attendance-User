@@ -47,7 +47,7 @@ class _LeaveState extends State<Leave> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Text(
-          "Leave Request",
+          "Medical Leave",
           style: TextStyle(color: Colors.black, fontSize: 22),
         ),
         leading: IconButton(

@@ -3,7 +3,7 @@
 //
 // import 'home.dart';
 // import '../methods/methods.dart';
-// import 'leave.dart';
+// import 'sick_leave.dart';
 //
 // class LeaveMain extends StatelessWidget {
 //   const LeaveMain({Key? key}) : super(key: key);
@@ -274,13 +274,15 @@
 //     );
 //   }
 // }
-import 'package:attend_user/pages/leave_req_part.dart';
+import 'package:attend_user/pages/annu_leave.dart';
+import 'package:attend_user/pages/casual_leave.dart';
+import 'package:attend_user/pages/half_leave.dart';
 import 'package:attend_user/pages/profile.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
 import '../methods/methods.dart';
-import 'leave.dart';
+import 'sick_leave.dart';
 
 class LeaveMain extends StatelessWidget {
   const LeaveMain({Key? key}) : super(key: key);
@@ -388,7 +390,7 @@ class LeaveMain extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => LeaveReqPart()),
+                              MaterialPageRoute(builder: (context) => CassualLeave()),
                             );
                           },
                           style: ElevatedButton.styleFrom(
@@ -419,7 +421,7 @@ class LeaveMain extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Leave()),
+                              MaterialPageRoute(builder: (context) => AnnuLeave()),
                             );
                           },
                           style: ElevatedButton.styleFrom(
@@ -450,7 +452,7 @@ class LeaveMain extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => LeaveReqPart()),
+                              MaterialPageRoute(builder: (context) => HalflLeave()),
                             );
                           },
                           style: ElevatedButton.styleFrom(
