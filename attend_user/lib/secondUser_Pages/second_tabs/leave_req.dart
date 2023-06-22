@@ -1,3 +1,7 @@
+import 'package:attend_user/secondUser_Pages/leave_req/annual_req.dart';
+import 'package:attend_user/secondUser_Pages/leave_req/cassual_req.dart';
+import 'package:attend_user/secondUser_Pages/leave_req/half_req.dart';
+import 'package:attend_user/secondUser_Pages/leave_req/sick_req.dart';
 import 'package:flutter/material.dart';
 
 import '../../methods/methods.dart';
@@ -49,10 +53,10 @@ class _SecLeaveReqState extends State<SecLeaveReq> {
                       height: 80,
                       child: ElevatedButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => Leave()),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SickLeave()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.black,
@@ -80,10 +84,10 @@ class _SecLeaveReqState extends State<SecLeaveReq> {
                       height: 80,
                       child: ElevatedButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => CassualLeave()),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SecCassualLeave()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.black,
@@ -111,10 +115,10 @@ class _SecLeaveReqState extends State<SecLeaveReq> {
                       height: 80,
                       child: ElevatedButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => AnnuLeave()),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SecAnnuLeave()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.black,
@@ -142,10 +146,10 @@ class _SecLeaveReqState extends State<SecLeaveReq> {
                       height: 80,
                       child: ElevatedButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => HalflLeave()),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SecHalflLeave()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.black,

@@ -3,17 +3,18 @@ import 'package:attend_user/secondUser_Pages/sec_leave_main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../methods/methods.dart';
 import 'package:file_picker/file_picker.dart';
 
-class HalflLeave extends StatefulWidget {
-  HalflLeave({Key? key}) : super(key: key);
+import '../../methods/methods.dart';
+
+class SickLeave extends StatefulWidget {
+  SickLeave({Key? key}) : super(key: key);
 
   @override
-  State<HalflLeave> createState() => _HalflLeaveState();
+  State<SickLeave> createState() => _SickLeaveState();
 }
 
-class _HalflLeaveState extends State<HalflLeave> {
+class _SickLeaveState extends State<SickLeave> {
   String selectedLeaveType = '';
   String selectedDayPart = '';
   TextEditingController fromdateController = TextEditingController();
@@ -28,8 +29,8 @@ class _HalflLeaveState extends State<HalflLeave> {
   //   'Leave Type 5',
   // ];
   final List<String> _DayParts = [
-    'First Part',
-    'Second Part',
+    'Full Day',
+    'Half Day',
   ];
 
   @override
@@ -48,7 +49,7 @@ class _HalflLeaveState extends State<HalflLeave> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: const Text(
-            "Half Day Leave",
+            "Medical Leave",
             style: TextStyle(color: Colors.black, fontSize: 22),
           ),
           leading: IconButton(
@@ -170,68 +171,68 @@ class _HalflLeaveState extends State<HalflLeave> {
               ),
 
               SizedBox(
-                height: getSizeBoxHeight(context),),
+                height: getSizeBoxHeightL(context),),
 
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(left: 0.0),
-                    margin: const EdgeInsets.only(left: 10.0),
-                    child: const Text(
-                      'Day Part :',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              // Row(
+              //   children: [
+              //     Container(
+              //       padding: const EdgeInsets.only(left: 0.0),
+              //       margin: const EdgeInsets.only(left: 10.0),
+              //       child: const Text(
+              //         'Day Part :',
+              //         style: TextStyle(
+              //           fontSize: 18,
+              //           color: Colors.black,
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              //
+              // SizedBox(
+              //   height: getSizeBoxHeight(context),),
 
-              SizedBox(
-                height: getSizeBoxHeight(context),),
-
-              Row(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 30),
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    width: 300,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[350], // Change the color to your desired color
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(
-                              0.5), // Change the shadow color if needed
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(
-                              0, 3), // Adjust the offset for the drop shadow
-                        ),
-                      ],
-                    ),
-                    child: DropdownButton<String>(
-                      value:
-                      selectedDayPart.isNotEmpty ? selectedDayPart : null,
-                      hint: const Text('Select Day Part'),
-                      onChanged: ( value) {
-                        setState(() {
-                          selectedDayPart = value ?? '';
-                        });
-                      },
-                      items: _DayParts.map((String claimType) {
-                        return DropdownMenuItem<String>(
-                          value: claimType,
-                          child: Text(claimType),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: getSizeBoxHeight(context),
-              ),
+              // Row(
+              //   children: [
+              //     Container(
+              //       margin: const EdgeInsets.only(left: 30),
+              //       padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              //       width: 300,
+              //       decoration: BoxDecoration(
+              //         color: Colors.grey[350], // Change the color to your desired color
+              //         boxShadow: [
+              //           BoxShadow(
+              //             color: Colors.grey.withOpacity(
+              //                 0.5), // Change the shadow color if needed
+              //             spreadRadius: 2,
+              //             blurRadius: 5,
+              //             offset: const Offset(
+              //                 0, 3), // Adjust the offset for the drop shadow
+              //           ),
+              //         ],
+              //       ),
+              //       child: DropdownButton<String>(
+              //         value:
+              //         selectedDayPart.isNotEmpty ? selectedDayPart : null,
+              //         hint: const Text('Select Day Part'),
+              //         onChanged: ( value) {
+              //           setState(() {
+              //             selectedDayPart = value ?? '';
+              //           });
+              //         },
+              //         items: _DayParts.map((String claimType) {
+              //           return DropdownMenuItem<String>(
+              //             value: claimType,
+              //             child: Text(claimType),
+              //           );
+              //         }).toList(),
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: getSizeBoxHeight(context),
+              // ),
 
               Row(
                 children: [

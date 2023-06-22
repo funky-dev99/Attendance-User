@@ -3,17 +3,19 @@ import 'package:attend_user/secondUser_Pages/sec_leave_main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../methods/methods.dart';
+
 import 'package:file_picker/file_picker.dart';
 
-class HalflLeave extends StatefulWidget {
-  HalflLeave({Key? key}) : super(key: key);
+import '../../methods/methods.dart';
+
+class SecCassualLeave extends StatefulWidget {
+  SecCassualLeave({Key? key}) : super(key: key);
 
   @override
-  State<HalflLeave> createState() => _HalflLeaveState();
+  State<SecCassualLeave> createState() => _SecCassualLeaveState();
 }
 
-class _HalflLeaveState extends State<HalflLeave> {
+class _SecCassualLeaveState extends State<SecCassualLeave> {
   String selectedLeaveType = '';
   String selectedDayPart = '';
   TextEditingController fromdateController = TextEditingController();
@@ -48,7 +50,7 @@ class _HalflLeaveState extends State<HalflLeave> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: const Text(
-            "Half Day Leave",
+            "Casual Leave",
             style: TextStyle(color: Colors.black, fontSize: 22),
           ),
           leading: IconButton(

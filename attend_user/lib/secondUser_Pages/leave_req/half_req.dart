@@ -3,17 +3,17 @@ import 'package:attend_user/secondUser_Pages/sec_leave_main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../methods/methods.dart';
+import '../../methods/methods.dart';
 import 'package:file_picker/file_picker.dart';
 
-class HalflLeave extends StatefulWidget {
-  HalflLeave({Key? key}) : super(key: key);
+class SecHalflLeave extends StatefulWidget {
+  SecHalflLeave({Key? key}) : super(key: key);
 
   @override
-  State<HalflLeave> createState() => _HalflLeaveState();
+  State<SecHalflLeave> createState() => _SecHalflLeaveState();
 }
 
-class _HalflLeaveState extends State<HalflLeave> {
+class _SecHalflLeaveState extends State<SecHalflLeave> {
   String selectedLeaveType = '';
   String selectedDayPart = '';
   TextEditingController fromdateController = TextEditingController();

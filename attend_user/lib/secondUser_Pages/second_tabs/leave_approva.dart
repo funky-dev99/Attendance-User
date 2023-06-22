@@ -8,7 +8,6 @@ class ListItem {
   ListItem({ required this.title,  required this.subTitle,  required this.description});
 }
 
-
 class SecLeaveApproval extends StatelessWidget {
   final List<ListItem> items = [
     ListItem(
