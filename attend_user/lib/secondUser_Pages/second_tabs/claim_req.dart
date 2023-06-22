@@ -256,6 +256,7 @@ class _SecClaimReqState extends State<SecClaimReq> {
         border: TableBorder.all(color: Colors.black),
         children: [
           TableRow(children: [
+            Text('Claim Type'),
             DropdownButton<String>(
               value: selectedClaimType.isNotEmpty ? selectedClaimType : null,
               hint: const Text('Claim Type'),
@@ -271,7 +272,7 @@ class _SecClaimReqState extends State<SecClaimReq> {
                 );
               }).toList(),
             ),
-            Text('Amount'),
+            Text('Amount    (Rs.)'),
             Text('Uploads'),
           ]),
         ],
