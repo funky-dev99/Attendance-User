@@ -222,10 +222,7 @@
 //     );
 //   }
 // }
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-
-import '../../methods/methods.dart';
 
 class SecClaimReq extends StatefulWidget {
   const SecClaimReq({Key? key}) : super(key: key);
@@ -235,54 +232,90 @@ class SecClaimReq extends StatefulWidget {
 }
 
 class _SecClaimReqState extends State<SecClaimReq> {
-  String selectedClaimType = '';
-  final desController = TextEditingController();
-  String uploadedFilePath = '';
-
-  final List<String> _claimTypes = [
-    'Claim Type 1',
-    'Claim Type 2',
-    'Claim Type 3',
-    'Claim Type 4',
-    'Claim Type 5',
+  List<dynamic> data = [
+    {"Claim": "Travelling", "Amount": 200, "Uploads": "Upload 1", "checked": false},
+    {"Claim": "Telephone", "Amount": 200, "Uploads": "Upload 1", "checked": false},
+    {"Claim": "Claim 3", "Amount": 200, "Uploads": "Upload 1", "checked": false},
+    {"Claim": "Claim 4", "Amount": 200, "Uploads": "Upload 1", "checked": false},
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      padding: EdgeInsets.all(20.0),
-      child: Table(
-        border: TableBorder.all(color: Colors.black),
-        children: const [
-          TableRow(children: [
-            Center(child: Text('Claim Type')),
-            // DropdownButton<String>(
-            //   value: selectedClaimType.isNotEmpty ? selectedClaimType : null,
-            //   hint: const Text('Claim Type'),
-            //   onChanged: (value) {
-            //     setState(() {
-            //       selectedClaimType = value ?? '';
-            //     });
-            //   },
-            //   items: _claimTypes.map((String claimType) {
-            //     return DropdownMenuItem<String>(
-            //       value: claimType,
-            //       child: Text(claimType),
-            //     );
-            //   }).toList(),
-            // ),
-            Center(child: Text('Amount    (Rs.)')),
-            Center(child: Text('Uploads')),
-          ]),
-          TableRow(children: [
-            Text(''),
-            Text(''),
-            Text(''),
-
-          ])
-        ],
+    return SingleChildScrollView(
+      child: SizedBox(
+        width: double.infinity,
+        child: DataTable(
+          columns: const <DataColumn>[
+            DataColumn(
+              label: Text('Claim'),
+            ),
+            DataColumn(
+              label: Text('Amount(Rs.)'),
+              numeric: true,
+            ),
+            DataColumn(
+              label: Text('Uploads'),
+            ),
+          ],
+          rows: List.generate(data.length, (index) {
+            final item = data[index];
+            return DataRow(
+              cells: [
+                DataCell(Text(item['Claim'])),
+                DataCell(Text(item['Amount'].toString())),
+                DataCell(Text(item['Uploads'])), // Fixed typo here
+              ],
+              selected: item['checked'],
+              onSelectChanged: (bool? value) {
+                setState(() {
+                  data[index]['checked'] = value!;
+                });
+                debugPrint(data.toString());
+              },
+            );
+          }),
+        ),
       ),
     );
   }
 }
+
+
+//   class SecClaimReq extends StatefulWidget {
+//   const SecClaimReq({Key? key}) : super(key: key);
+//
+//   @override
+//   State<SecClaimReq> createState() => _SecClaimReqState();
+// }
+//
+// class _SecClaimReqState extends State<SecClaimReq> {
+//   String selectedClaimType = '';
+//   final desController = TextEditingController();
+//   String uploadedFilePath = '';
+//
+//   final List<String> _claimTypes = [
+//     'Claim Type 1',
+//     'Claim Type 2',
+//     'Claim Type 3',
+//     'Claim Type 4',
+//     'Claim Type 5',
+//   ];
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       color: Colors.white,
+//       padding: EdgeInsets.all(20.0),
+//       child: Table(
+//         border: TableBorder.all(color: Colors.black),
+//         children: const [
+//           TableRow(children: [
+//             Center(child: Text('Claim Type')),
+//             Center(child: Text('Amount    (Rs.)')),
+//             Center(child: Text('Uploads')),
+//           ]),
+//         ],
+//       ),
+//     );
+//   }
+// }

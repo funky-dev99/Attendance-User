@@ -158,3 +158,25 @@ class TextVertical extends StatelessWidget {
   }
 }
 
+
+
+
+
+
+/*************************************///
+// DropdownButton<String>(
+//   value: selectedClaimType.isNotEmpty ? selectedClaimType : null,
+//   hint: const Text('Claim Type'),
+//   onChanged: (value) {
+//     setState(() {
+//       selectedClaimType = value ?? '';
+//     });
+//   },
+//   items: _claimTypes.map((String claimType) {
+//     return DropdownMenuItem<String>(
+//       value: claimType,
+//       child: Text(claimType),
+//     );
+//   }).toList(),
+// ),
+
