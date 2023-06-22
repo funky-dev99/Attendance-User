@@ -254,27 +254,33 @@ class _SecClaimReqState extends State<SecClaimReq> {
       padding: EdgeInsets.all(20.0),
       child: Table(
         border: TableBorder.all(color: Colors.black),
-        children: [
+        children: const [
           TableRow(children: [
-            Text('Claim Type'),
-            DropdownButton<String>(
-              value: selectedClaimType.isNotEmpty ? selectedClaimType : null,
-              hint: const Text('Claim Type'),
-              onChanged: (value) {
-                setState(() {
-                  selectedClaimType = value ?? '';
-                });
-              },
-              items: _claimTypes.map((String claimType) {
-                return DropdownMenuItem<String>(
-                  value: claimType,
-                  child: Text(claimType),
-                );
-              }).toList(),
-            ),
-            Text('Amount    (Rs.)'),
-            Text('Uploads'),
+            Center(child: Text('Claim Type')),
+            // DropdownButton<String>(
+            //   value: selectedClaimType.isNotEmpty ? selectedClaimType : null,
+            //   hint: const Text('Claim Type'),
+            //   onChanged: (value) {
+            //     setState(() {
+            //       selectedClaimType = value ?? '';
+            //     });
+            //   },
+            //   items: _claimTypes.map((String claimType) {
+            //     return DropdownMenuItem<String>(
+            //       value: claimType,
+            //       child: Text(claimType),
+            //     );
+            //   }).toList(),
+            // ),
+            Center(child: Text('Amount    (Rs.)')),
+            Center(child: Text('Uploads')),
           ]),
+          TableRow(children: [
+            Text(''),
+            Text(''),
+            Text(''),
+
+          ])
         ],
       ),
     );
