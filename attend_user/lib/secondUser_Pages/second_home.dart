@@ -1,5 +1,8 @@
+import 'package:attend_user/secondUser_Pages/Sec_Setting.dart';
+import 'package:attend_user/secondUser_Pages/sec_ask.dart';
 import 'package:attend_user/secondUser_Pages/sec_claim_main.dart';
 import 'package:attend_user/secondUser_Pages/sec_leave_main.dart';
+import 'package:attend_user/secondUser_Pages/sec_payslip.dart';
 import 'package:attend_user/secondUser_Pages/second_attendance.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,7 +16,7 @@ class SecondHome extends StatelessWidget {
   final List<String> containerTexts = [
     'Attendance',
     'Leave',
-    'Claim Request',
+    'Claim',
     'Pay Slip',
     'Ask',
     'Settings',
@@ -185,24 +188,23 @@ class SecondHome extends StatelessWidget {
   }
 
   void _handleContainer3Pressed(BuildContext context) {
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => PaySlipPage()),
-    // );
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SecPaySlipPage()),
+    );
   }
 
   void _handleContainer4Pressed(BuildContext context) {
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => AskPage()),
-    // );
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SecAskPage()),
+    );
   }
 
   void _handleContainer5Pressed(BuildContext context) {
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => Settings()),
-    //   );
-    // }
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SecSettings()),
+      );
+    }
   }
-}
