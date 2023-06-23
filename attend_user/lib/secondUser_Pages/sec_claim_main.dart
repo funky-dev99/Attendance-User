@@ -43,7 +43,7 @@ class SecClaim extends StatelessWidget {
           ),
           body: Column(
             children:  [
-              TabBar(tabs: [
+              const TabBar(tabs: [
                 Tab(
                   child: Text(
                     'Request',

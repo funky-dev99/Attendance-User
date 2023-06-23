@@ -70,11 +70,11 @@ class _SettingsState extends State<Settings> {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               Container(
                 child: Center(
                   child: Column(
-                    children: [
+                    children: const [
                       Text('Dinethri Gunawardhana',
                       style: TextStyle(
                         fontSize: 18,
@@ -131,7 +131,7 @@ class TextVertical extends StatelessWidget {
               } else if (text == 'Privacy') {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => PrivacyPage()),
+                  MaterialPageRoute(builder: (context) => const PrivacyPage()),
                 );
               } else if (text == 'Notifications') {
                 Navigator.push(
@@ -141,12 +141,12 @@ class TextVertical extends StatelessWidget {
               } else if (text == 'Language') {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LanguPage()),
+                  MaterialPageRoute(builder: (context) => const LanguPage()),
                 );
               } else if (text == 'Help & Support') {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HelpPage()),
+                  MaterialPageRoute(builder: (context) => const HelpPage()),
                 );
               }
             },
