@@ -42,7 +42,7 @@ class SecondHome extends StatelessWidget {
           style: TextStyle(color: Colors.black, fontSize: 22),
         ),
         leading: IconButton(
-          icon: Icon(Icons.home_rounded, size: 30.0,),
+          icon: const Icon(Icons.home_rounded, size: 30.0,),
           color: Colors.black,
           onPressed: () {
             // Navigator.push(
@@ -51,7 +51,7 @@ class SecondHome extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.person, size: 30.0,),
+            icon: const Icon(Icons.person, size: 30.0,),
             color: Colors.black,
             tooltip: 'View Profile',
             onPressed: () {
