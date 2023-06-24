@@ -321,7 +321,7 @@ class _SecClaimReqState extends State<SecClaimReq> {
                       color: Colors.red,
                     ),
                     label: const Text(
-                      'Upload',
+                      '',
                       style: TextStyle(color: Colors.black),
                     ),
                     style: ElevatedButton.styleFrom(
