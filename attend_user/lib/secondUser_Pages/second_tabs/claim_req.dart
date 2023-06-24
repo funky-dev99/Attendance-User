@@ -277,28 +277,6 @@ class _SecClaimReqState extends State<SecClaimReq> {
                   ),
                 ),
                 DataCell(
-                  // ElevatedButton(
-                  //   onPressed: () async {
-                  //     FilePickerResult? result = await FilePicker.platform.pickFiles();
-                  //
-                  //     if (result != null) {
-                  //       PlatformFile file = result.files.first;
-                  //       setState(() {
-                  //         uploadedFilePath = file.path ?? '';
-                  //       });
-                  //
-                  //       print('File path: ${file.path}');
-                  //       print('File name: ${file.name}');
-                  //       print('File size: ${file.size}');
-                  //     } else {
-                  //       // User canceled the file picker
-                  //     }
-                  //     // print('Upload button pressed for ${item['Uploads']}');
-                  //   },
-                  //
-                  //
-                  //   child: Text(item['Uploads']),
-                  // ),
                   ElevatedButton.icon(
                     onPressed: () async {
                       FilePickerResult? result = await FilePicker.platform.pickFiles();
@@ -308,7 +286,6 @@ class _SecClaimReqState extends State<SecClaimReq> {
                         setState(() {
                           uploadedFilePath = file.path ?? '';
                         });
-
                         print('File path: ${file.path}');
                         print('File name: ${file.name}');
                         print('File size: ${file.size}');
