@@ -28,6 +28,12 @@ class _SecClaimReqState extends State<SecClaimReq> {
     });
   }
 
+  void submitItems() {
+    List<Map<String, dynamic>> selectedItems = data.where((item) => item['checked']).toList();
+    print(selectedItems);
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -54,21 +60,22 @@ class _SecClaimReqState extends State<SecClaimReq> {
                   cells: [
                     DataCell(
                       TextFormField(
-                      initialValue: item['Claim'].toString(),
-                      keyboardType: TextInputType.text,
-                      onChanged: (value) {
-                        setState(() {
-                          data[index]['Claim'] = double.parse(value);
-                        });
-                      },
-                    ),),
+                        initialValue: item['Claim'].toString(),
+                        keyboardType: TextInputType.text,
+                        onChanged: (value) {
+                          setState(() {
+                            data[index]['Claim'] = value;
+                          });
+                        },
+                      ),
+                    ),
                     DataCell(
                       TextFormField(
                         initialValue: item['Amount'].toString(),
                         keyboardType: TextInputType.number,
                         onChanged: (value) {
                           setState(() {
-                            data[index]['Amount'] = double.parse(value);
+                            data[index]['Amount'] = value;
                           });
                         },
                       ),
@@ -76,8 +83,7 @@ class _SecClaimReqState extends State<SecClaimReq> {
                     DataCell(
                       ElevatedButton.icon(
                         onPressed: () async {
-                          FilePickerResult? result =
-                          await FilePicker.platform.pickFiles();
+                          FilePickerResult? result = await FilePicker.platform.pickFiles();
 
                           if (result != null) {
                             PlatformFile file = result.files.first;
@@ -122,7 +128,12 @@ class _SecClaimReqState extends State<SecClaimReq> {
           onPressed: addNewColumn,
           child: const Icon(Icons.add),
         ),
+        ElevatedButton(
+          onPressed: submitItems,
+          child: const Text('Submit'),
+        ),
       ],
     );
   }
 }
+
