@@ -13,8 +13,8 @@ class _SecClaimReqState extends State<SecClaimReq> {
   List<Map<String, dynamic>> data = [
     {"Claim": "Travelling", "Amount": '', "Uploads": "Upload", "checked": false},
     {"Claim": "Telephone", "Amount": '', "Uploads": "Upload", "checked": false},
-    {"Claim": "Claim 3", "Amount": '', "Uploads": "Upload", "checked": false},
-    {"Claim": "Claim 4", "Amount": '', "Uploads": "Upload", "checked": false},
+    {"Claim": "Add Claim", "Amount": '', "Uploads": "Upload", "checked": false},
+    {"Claim": "Add Claim", "Amount": '', "Uploads": "Upload", "checked": false},
   ];
 
   void addNewColumn() {
@@ -128,9 +128,17 @@ class _SecClaimReqState extends State<SecClaimReq> {
           onPressed: addNewColumn,
           child: const Icon(Icons.add),
         ),
-        ElevatedButton(
-          onPressed: submitItems,
-          child: const Text('Submit'),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 80.0, top: 20.0),
+          child: ElevatedButton(
+            onPressed: submitItems,
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.white, backgroundColor: Colors.black, // Sets the text color
+              minimumSize: const Size(150, 50), // Sets the minimum size of the button
+            ),
+            child: const Text('Submit',
+              style: TextStyle(fontSize: 18,),),
+          ),
         ),
       ],
     );
