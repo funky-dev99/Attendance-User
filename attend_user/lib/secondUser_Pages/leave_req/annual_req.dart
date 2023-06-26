@@ -20,13 +20,13 @@ class _SecAnnuLeaveState extends State<SecAnnuLeave> {
   TextEditingController todateController = TextEditingController();
   String uploadedFilePath = '';
 
-  // final List<String> _leaveTypes = [
-  //   'Leave Type 1',
-  //   'Leave Type 2',
-  //   'Leave Type 3',
-  //   'Leave Type 4',
-  //   'Leave Type 5',
-  // ];
+  final List<String> _leaveTypes = [
+    'Leave Type 1',
+    'Leave Type 2',
+    'Leave Type 3',
+    'Leave Type 4',
+    'Leave Type 5',
+  ];
   final List<String> _DayParts = [
     'Full Day',
     'Half Day',
