@@ -14,19 +14,12 @@ class SecHalflLeave extends StatefulWidget {
 }
 
 class _SecHalflLeaveState extends State<SecHalflLeave> {
-  String selectedLeaveType = '';
+  String selectedLeaveType = 'Half Leave';
   String selectedDayPart = '';
   TextEditingController fromdateController = TextEditingController();
   TextEditingController todateController = TextEditingController();
   String uploadedFilePath = '';
 
-  // final List<String> _leaveTypes = [
-  //   'Leave Type 1',
-  //   'Leave Type 2',
-  //   'Leave Type 3',
-  //   'Leave Type 4',
-  //   'Leave Type 5',
-  // ];
   final List<String> _DayParts = [
     'First Part',
     'Second Part',
@@ -263,9 +256,9 @@ class _SecHalflLeaveState extends State<SecHalflLeave> {
                       uploadedFilePath = file.path ?? '';
                     });
 
-                    print('File path: ${file.path}');
-                    print('File name: ${file.name}');
-                    print('File size: ${file.size}');
+                    // print('File path: ${file.path}');
+                    // print('File name: ${file.name}');
+                    // print('File size: ${file.size}');
                   } else {
                     // User canceled the file picker
                   }
@@ -302,6 +295,7 @@ class _SecHalflLeaveState extends State<SecHalflLeave> {
                   print('From: $fromdateController');
                   print('To: $todateController');
                   print('Day Part: $selectedDayPart');
+                  print('Uploaded File: $uploadedFilePath');
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white, backgroundColor: Colors.black, // Sets the text color
