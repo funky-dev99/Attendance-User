@@ -1,4 +1,3 @@
-import 'package:attend_user/pages/leave_main.dart';
 import 'package:attend_user/secondUser_Pages/sec_leave_main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -14,16 +13,16 @@ class SecAnnuLeave extends StatefulWidget {
 }
 
 class _SecAnnuLeaveState extends State<SecAnnuLeave> {
-  String selectedLeaveType = '';
+  String selectedLeaveType = 'Annual Leave';
   String selectedDayPart = '';
   TextEditingController fromdateController = TextEditingController();
   TextEditingController todateController = TextEditingController();
   String uploadedFilePath = '';
 
-  final List<String> _DayParts = [
-    'Full Day',
-    'Half Day',
-  ];
+  // final List<String> _DayParts = [
+  //   'Full Day',
+  //   'Half Day',
+  // ];
 
   @override
   void initState() {
@@ -196,9 +195,9 @@ class _SecAnnuLeaveState extends State<SecAnnuLeave> {
                       uploadedFilePath = file.path ?? '';
                     });
 
-                    print('File path: ${file.path}');
-                    print('File name: ${file.name}');
-                    print('File size: ${file.size}');
+                    // print('File path: ${file.path}');
+                    // print('File name: ${file.name}');
+                    // print('File size: ${file.size}');
                   } else {
                     // User canceled the file picker
                   }
@@ -234,7 +233,6 @@ class _SecAnnuLeaveState extends State<SecAnnuLeave> {
                   print('Leave Type: $selectedLeaveType');
                   print('From: $fromdateController');
                   print('To: $todateController');
-                  print('Day Part: $selectedDayPart');
                   print('Uploaded File: $uploadedFilePath');
                 },
                 style: ElevatedButton.styleFrom(
