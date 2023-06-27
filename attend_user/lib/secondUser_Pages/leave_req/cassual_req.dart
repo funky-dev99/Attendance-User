@@ -1,4 +1,3 @@
-import 'package:attend_user/pages/leave_main.dart';
 import 'package:attend_user/secondUser_Pages/sec_leave_main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -8,27 +7,20 @@ import 'package:file_picker/file_picker.dart';
 
 import '../../methods/methods.dart';
 
-class SecCassualLeave extends StatefulWidget {
-  SecCassualLeave({Key? key}) : super(key: key);
+class SecCasualLeave extends StatefulWidget {
+  SecCasualLeave({Key? key}) : super(key: key);
 
   @override
-  State<SecCassualLeave> createState() => _SecCassualLeaveState();
+  State<SecCasualLeave> createState() => _SecCasualLeaveState();
 }
 
-class _SecCassualLeaveState extends State<SecCassualLeave> {
-  String selectedLeaveType = '';
+class _SecCasualLeaveState extends State<SecCasualLeave> {
+  String selectedLeaveType = 'Casual Leave';
   String selectedDayPart = '';
   TextEditingController fromdateController = TextEditingController();
   TextEditingController todateController = TextEditingController();
   String uploadedFilePath = '';
 
-  // final List<String> _leaveTypes = [
-  //   'Leave Type 1',
-  //   'Leave Type 2',
-  //   'Leave Type 3',
-  //   'Leave Type 4',
-  //   'Leave Type 5',
-  // ];
   final List<String> _DayParts = [
     'First Part',
     'Second Part',
@@ -265,9 +257,9 @@ class _SecCassualLeaveState extends State<SecCassualLeave> {
                       uploadedFilePath = file.path ?? '';
                     });
 
-                    print('File path: ${file.path}');
-                    print('File name: ${file.name}');
-                    print('File size: ${file.size}');
+                    // print('File path: ${file.path}');
+                    // print('File name: ${file.name}');
+                    // print('File size: ${file.size}');
                   } else {
                     // User canceled the file picker
                   }
@@ -304,6 +296,7 @@ class _SecCassualLeaveState extends State<SecCassualLeave> {
                   print('From: $fromdateController');
                   print('To: $todateController');
                   print('Day Part: $selectedDayPart');
+                  print('Uploaded File: $uploadedFilePath');
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white, backgroundColor: Colors.black, // Sets the text color

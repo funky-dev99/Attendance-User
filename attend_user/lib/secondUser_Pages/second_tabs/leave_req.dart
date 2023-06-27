@@ -86,7 +86,7 @@ class _SecLeaveReqState extends State<SecLeaveReq> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => SecCassualLeave()),
+                            MaterialPageRoute(builder: (context) => SecCasualLeave()),
                           );
                         },
                         style: ElevatedButton.styleFrom(
