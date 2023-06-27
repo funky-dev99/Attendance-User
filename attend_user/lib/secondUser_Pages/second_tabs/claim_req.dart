@@ -9,7 +9,9 @@ class SecClaimReq extends StatefulWidget {
 }
 
 class _SecClaimReqState extends State<SecClaimReq> {
+
   String uploadedFilePath = '';
+
   List<Map<String, dynamic>> data = [
     {"Claim": "Travelling", "Amount": '', "Uploads": "Upload", "checked": false},
     {"Claim": "Telephone", "Amount": '', "Uploads": "Upload", "checked": false},
@@ -22,7 +24,7 @@ class _SecClaimReqState extends State<SecClaimReq> {
       data.add({
         "Claim": "New Claim",
         "Amount": '',
-        "Uploads": "Upload",
+        "Uploads": '',
         "checked": false,
       });
     });
