@@ -20,13 +20,6 @@ class _SecAnnuLeaveState extends State<SecAnnuLeave> {
   TextEditingController todateController = TextEditingController();
   String uploadedFilePath = '';
 
-  // final List<String> _leaveTypes = [
-  //   'Leave Type 1',
-  //   'Leave Type 2',
-  //   'Leave Type 3',
-  //   'Leave Type 4',
-  //   'Leave Type 5',
-  // ];
   final List<String> _DayParts = [
     'Full Day',
     'Half Day',
@@ -108,7 +101,7 @@ class _SecAnnuLeaveState extends State<SecAnnuLeave> {
                     //You can format date as per your need
 
                     setState(() {
-                      fromdateController.text = formattedDate; //set foratted date to TextField value.
+                      fromdateController.text = formattedDate; //set formatted date to TextField value.
                     });
                   }else{
                     print("Date is not selected");
@@ -172,7 +165,7 @@ class _SecAnnuLeaveState extends State<SecAnnuLeave> {
               SizedBox(
                 height: getSizeBoxHeightL(context),),
 
-              
+
               Row(
                 children: [
                   Container(
@@ -242,6 +235,7 @@ class _SecAnnuLeaveState extends State<SecAnnuLeave> {
                   print('From: $fromdateController');
                   print('To: $todateController');
                   print('Day Part: $selectedDayPart');
+                  print('Uploaded File: $uploadedFilePath');
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white, backgroundColor: Colors.black, // Sets the text color
