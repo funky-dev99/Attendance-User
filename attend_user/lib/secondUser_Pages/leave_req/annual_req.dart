@@ -172,67 +172,7 @@ class _SecAnnuLeaveState extends State<SecAnnuLeave> {
               SizedBox(
                 height: getSizeBoxHeightL(context),),
 
-              // Row(
-              //   children: [
-              //     Container(
-              //       padding: const EdgeInsets.only(left: 0.0),
-              //       margin: const EdgeInsets.only(left: 10.0),
-              //       child: const Text(
-              //         'Day Part :',
-              //         style: TextStyle(
-              //           fontSize: 18,
-              //           color: Colors.black,
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              //
-              // SizedBox(
-              //   height: getSizeBoxHeight(context),),
-
-              // Row(
-              //   children: [
-              //     Container(
-              //       margin: const EdgeInsets.only(left: 30),
-              //       padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              //       width: 300,
-              //       decoration: BoxDecoration(
-              //         color: Colors.grey[350], // Change the color to your desired color
-              //         boxShadow: [
-              //           BoxShadow(
-              //             color: Colors.grey.withOpacity(
-              //                 0.5), // Change the shadow color if needed
-              //             spreadRadius: 2,
-              //             blurRadius: 5,
-              //             offset: const Offset(
-              //                 0, 3), // Adjust the offset for the drop shadow
-              //           ),
-              //         ],
-              //       ),
-              //       child: DropdownButton<String>(
-              //         value:
-              //         selectedDayPart.isNotEmpty ? selectedDayPart : null,
-              //         hint: const Text('Select Day Part'),
-              //         onChanged: ( value) {
-              //           setState(() {
-              //             selectedDayPart = value ?? '';
-              //           });
-              //         },
-              //         items: _DayParts.map((String claimType) {
-              //           return DropdownMenuItem<String>(
-              //             value: claimType,
-              //             child: Text(claimType),
-              //           );
-              //         }).toList(),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // SizedBox(
-              //   height: getSizeBoxHeight(context),
-              // ),
-
+              
               Row(
                 children: [
                   Container(
