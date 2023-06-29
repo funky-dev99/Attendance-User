@@ -19,6 +19,7 @@ class _SickLeaveState extends State<SickLeave> {
   TextEditingController fromdateController = TextEditingController();
   TextEditingController todateController = TextEditingController();
   String uploadedFilePath = '';
+  String leaveTypeCode = '4';
 
 
   @override

@@ -20,6 +20,7 @@ class _SecCasualLeaveState extends State<SecCasualLeave> {
   TextEditingController fromdateController = TextEditingController();
   TextEditingController todateController = TextEditingController();
   String uploadedFilePath = '';
+  String leaveTypeCode = '2';
 
   final List<String> _DayParts = [
     'First Part',

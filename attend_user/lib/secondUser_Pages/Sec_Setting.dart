@@ -1,13 +1,7 @@
 import 'dart:io';
 
-import 'package:attend_user/pages/help.dart';
-import 'package:attend_user/pages/language.dart';
-import 'package:attend_user/pages/privacy.dart';
-import 'package:attend_user/pages/profile.dart';
 import 'package:attend_user/secondUser_Pages/second_home.dart';
 import 'package:flutter/material.dart';
-
-import '../pages/notification.dart';
 
 
 class SecSettings extends StatefulWidget {
@@ -90,8 +84,8 @@ class _SecSettingsState extends State<SecSettings> {
 
               const TextVertical(icon: Icons.account_circle_sharp, text: 'Profile Edit'),
               const TextVertical(icon: Icons.lock, text: 'Privacy'),
-              const TextVertical(icon: Icons.notifications, text: 'Notifications'),
-              const TextVertical(icon: Icons.language, text: 'Language'),
+              //const TextVertical(icon: Icons.notifications, text: 'Notifications'),
+              //const TextVertical(icon: Icons.language, text: 'Language'),
               const TextVertical(icon: Icons.help, text: 'Help & Support'),
             ],
           ),
@@ -134,12 +128,12 @@ class TextVertical extends StatelessWidget {
                 //   context,
                 //   MaterialPageRoute(builder: (context) => PrivacyPage()),
                 // );
-              } else if (text == 'Notifications') {
+              // } else if (text == 'Notifications') {
                 // Navigator.push(
                 //   context,
                 //   MaterialPageRoute(builder: (context) => const NotificationPage()),
                 // );
-              } else if (text == 'Language') {
+              // } else if (text == 'Language') {
                 // Navigator.push(
                 //   context,
                 //   MaterialPageRoute(builder: (context) => LanguPage()),

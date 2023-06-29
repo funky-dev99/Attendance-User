@@ -19,6 +19,7 @@ class _SecHalflLeaveState extends State<SecHalflLeave> {
   TextEditingController fromdateController = TextEditingController();
   TextEditingController todateController = TextEditingController();
   String uploadedFilePath = '';
+  String leaveTypeCode = '3';
 
   final List<String> _DayParts = [
     'First Part',
