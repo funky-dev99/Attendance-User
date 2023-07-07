@@ -1,4 +1,4 @@
-import 'package:attend_user/pages/leave_main.dart';
+import 'package:talent/pages/leave_main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

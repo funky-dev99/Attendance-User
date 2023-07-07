@@ -2,7 +2,7 @@
 //username = test@gmail.com
 //password = 111111
 
-import 'package:attend_user/secondUser_Pages/second_home.dart';
+import 'package:talent/secondUser_Pages/second_home.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';

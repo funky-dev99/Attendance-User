@@ -253,14 +253,14 @@
 //   }
 // }
 //
-import 'dart:convert';
-import 'package:attend_user/secondUser_Pages/leave_req/annual_req.dart';
-import 'package:attend_user/secondUser_Pages/sec_leave_main.dart';
+import 'package:talent/secondUser_Pages/sec_leave_main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:file_picker/file_picker.dart';
 import '../../methods/methods.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'dart:io';
 
 class SickLeave extends StatefulWidget {
   SickLeave({Key? key}) : super(key: key);
@@ -276,11 +276,17 @@ class _SickLeaveState extends State<SickLeave> {
   TextEditingController todateController = TextEditingController();
   String uploadedFilePath = '';
   String leaveTypeCode = '4';
+  String leaveTypeName = 'Medical';
+  String companyId = '1234';
+  String companyName = '111';
+  String userId = '111';
+  String userName = '12345';
+
 
   @override
   void initState() {
-    fromdateController.text = ""; //set the initial value of text field
-    todateController.text = ""; //set the initial value of text field
+    fromdateController.text = "";
+    todateController.text = "";
     super.initState();
   }
 
@@ -308,9 +314,7 @@ class _SickLeaveState extends State<SickLeave> {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            SizedBox(
-              height: getSizeBoxHeightL(context),
-            ),
+            SizedBox(height: getSizeBoxHeightL(context)),
             Row(
               children: [
                 Container(
@@ -352,9 +356,7 @@ class _SickLeaveState extends State<SickLeave> {
                 }
               },
             ),
-            SizedBox(
-              height: getSizeBoxHeight(context),
-            ),
+            SizedBox(height: getSizeBoxHeight(context)),
             Row(
               children: [
                 Container(
@@ -396,9 +398,7 @@ class _SickLeaveState extends State<SickLeave> {
                 }
               },
             ),
-            SizedBox(
-              height: getSizeBoxHeightL(context),
-            ),
+            SizedBox(height: getSizeBoxHeightL(context)),
             Row(
               children: [
                 Container(
@@ -414,9 +414,7 @@ class _SickLeaveState extends State<SickLeave> {
                 ),
               ],
             ),
-            SizedBox(
-              height: getSizeBoxHeight(context),
-            ),
+            SizedBox(height: getSizeBoxHeight(context)),
             ElevatedButton.icon(
               onPressed: () async {
                 FilePickerResult? result =
@@ -452,31 +450,42 @@ class _SickLeaveState extends State<SickLeave> {
                 padding: const EdgeInsets.all(10.0),
                 child: Text('Uploaded File: $uploadedFilePath'),
               ),
-            SizedBox(
-              height: getSizeBoxHeightL(context),
-            ),
+            SizedBox(height: getSizeBoxHeightL(context)),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 print('Leave Type: $selectedLeaveType');
                 print('From: ${fromdateController.text}');
                 print('To: ${todateController.text}');
                 print('Uploaded File: $uploadedFilePath');
-                createLeaveRequest(
+
+                bool success = await createLeaveRequest(
                   context,
-                  companyId: '',
-                  companyName: '',
-                  userId: '',
-                  userName: '',
-                  leaveTypeCode: leaveTypeCode,
-                  leaveTypeName: selectedLeaveType,
-                  fromDate: fromdateController.text,
-                  toDate: todateController.text,
-                  reason: '',
-                  leaveStatus: '',
-                  deleteRow: '',
-                  deleteById: '',
-                  updateById: '',
+                  companyId,
+                  companyName,
+                  userId,
+                  userName,
+                  leaveTypeCode,
+                  leaveTypeName,
+                  fromdateController.text,
+                  todateController.text,
+                  '',
+                  '',
+                  '',
+                  '',
+                  '',
                 );
+
+                if (success) {
+                  // Show success message or navigate to another screen
+                  Future.delayed(Duration(milliseconds: 500), () {
+                    snackBar(context, "Leave request submitted successfully", Colors.green);
+                  });
+                } else {
+                  // Show error message
+                  Future.delayed(Duration(milliseconds: 500), () {
+                    snackBar(context, "Failed to submit leave request", Colors.redAccent);
+                  });
+                }
               },
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
@@ -496,22 +505,28 @@ class _SickLeaveState extends State<SickLeave> {
     );
   }
 
+  Future<int> getLeaveUnicId() async {
+    int timestamp = DateTime.now().millisecondsSinceEpoch;
+    int unicLeaveId = timestamp;
+    return unicLeaveId;
+  }
+
   Future<bool> createLeaveRequest(
-      BuildContext context, {
-        required var companyId,
-        required var companyName,
-        required var userId,
-        required var userName,
-        required var leaveTypeCode,
-        required var leaveTypeName,
-        required var fromDate,
-        required var toDate,
-        required var reason,
-        required var leaveStatus,
-        required var deleteRow,
-        required var deleteById,
-        required var updateById,
-      }) async {
+      BuildContext context,
+      var companyId,
+      var companyName,
+      var userId,
+      var userName,
+      var leaveTypeCode,
+      var leaveTypeName,
+      var fromDate,
+      var toDate,
+      var reason,
+      var leaveStatus,
+      var deleteRow,
+      var deleteById,
+      var updateById,
+      ) async {
     var url = "http://api.talent.cbs.lk/createLeaveRequest.php";
     var leaveUnicId = await getLeaveUnicId();
     var data = {
@@ -528,35 +543,39 @@ class _SickLeaveState extends State<SickLeave> {
       "leave_status": '$leaveStatus',
       "delete_row": '$deleteRow',
       "delete_by_id": '$deleteById',
-      "update_by_id": '$updateById'
+      "update_by_id": '$updateById',
     };
 
     http.Response res = await http.post(
       Uri.parse(url),
       body: data,
       headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
       },
-      encoding: Encoding.getByName("utf-8"),
     );
 
-    if (res.statusCode.toString() == "200") {
-      if (jsonDecode(res.body) == "Account already exists") {
-      } else if (jsonDecode(res.body) == "true") {
-        snackBar(context, "Done", Colors.green);
-        return true;
-      }
+    var response = json.decode(res.body);
+    print(response);
+    if (response['error'] == 'false') {
+      snackBar(context, "Done", Colors.green); // Show success snackbar
+      return true;
     } else {
-      snackBar(context, "Error", Colors.redAccent);
+      snackBar(context, "Error", Colors.redAccent); // Show error snackbar
       return false;
     }
-    return true;
   }
 
-  Future<int> getLeaveUnicId() async {
-    int timestamp = DateTime.now().millisecondsSinceEpoch;
-    int unicLeaveId = timestamp;
-    return unicLeaveId;
+  void snackBar(BuildContext context, String message, Color color) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: color,
+      ),
+    );
   }
 }
+

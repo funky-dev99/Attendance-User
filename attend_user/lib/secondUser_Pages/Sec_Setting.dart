@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:attend_user/secondUser_Pages/second_home.dart';
+import 'package:talent/secondUser_Pages/second_home.dart';
 import 'package:flutter/material.dart';
 
 

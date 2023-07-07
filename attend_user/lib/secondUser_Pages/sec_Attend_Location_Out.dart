@@ -1,4 +1,4 @@
-import 'package:attend_user/secondUser_Pages/second_attendance.dart';
+import 'package:talent/secondUser_Pages/second_attendance.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:shared_preferences/shared_preferences.dart';

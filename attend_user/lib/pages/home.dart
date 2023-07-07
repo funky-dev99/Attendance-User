@@ -1,12 +1,12 @@
-import 'package:attend_user/pages/askpage.dart';
-import 'package:attend_user/pages/attendance.dart';
-import 'package:attend_user/pages/claim_page.dart';
-import 'package:attend_user/pages/leave_main.dart';
-import 'package:attend_user/login.dart';
-import 'package:attend_user/pages/notification.dart';
-import 'package:attend_user/pages/payslip.dart';
-import 'package:attend_user/pages/profile.dart';
-import 'package:attend_user/pages/setting.dart';
+import 'package:talent/pages/askpage.dart';
+import 'package:talent/pages/attendance.dart';
+import 'package:talent/pages/claim_page.dart';
+import 'package:talent/pages/leave_main.dart';
+import 'package:talent/login.dart';
+import 'package:talent/pages/notification.dart';
+import 'package:talent/pages/payslip.dart';
+import 'package:talent/pages/profile.dart';
+import 'package:talent/pages/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

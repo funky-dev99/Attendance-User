@@ -23,8 +23,8 @@
 //   }
 // }
 
-import 'package:attend_user/login.dart';
-import 'package:attend_user/secondUser_Pages/second_home.dart';
+import 'package:talent/login.dart';
+import 'package:talent/secondUser_Pages/second_home.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

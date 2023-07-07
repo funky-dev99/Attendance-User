@@ -1,7 +1,7 @@
-import 'package:attend_user/secondUser_Pages/leave_req/annual_req.dart';
-import 'package:attend_user/secondUser_Pages/leave_req/cassual_req.dart';
-import 'package:attend_user/secondUser_Pages/leave_req/half_req.dart';
-import 'package:attend_user/secondUser_Pages/leave_req/sick_req.dart';
+import 'package:talent/secondUser_Pages/leave_req/annual_req.dart';
+import 'package:talent/secondUser_Pages/leave_req/cassual_req.dart';
+import 'package:talent/secondUser_Pages/leave_req/half_req.dart';
+import 'package:talent/secondUser_Pages/leave_req/sick_req.dart';
 import 'package:flutter/material.dart';
 
 import '../../methods/methods.dart';

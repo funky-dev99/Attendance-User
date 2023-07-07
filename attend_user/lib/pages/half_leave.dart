@@ -1,5 +1,5 @@
-import 'package:attend_user/pages/leave_main.dart';
-import 'package:attend_user/secondUser_Pages/sec_leave_main.dart';
+import 'package:talent/pages/leave_main.dart';
+import 'package:talent/secondUser_Pages/sec_leave_main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

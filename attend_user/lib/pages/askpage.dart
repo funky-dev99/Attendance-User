@@ -1,5 +1,6 @@
-import 'package:attend_user/pages/profile.dart';
+import 'package:talent/pages/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:talent/pages/profile.dart';
 
 import 'home.dart';
 import '../methods/methods.dart';

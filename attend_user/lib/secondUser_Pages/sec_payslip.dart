@@ -1,4 +1,4 @@
-import 'package:attend_user/secondUser_Pages/second_home.dart';
+import 'package:talent/secondUser_Pages/second_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:intl/intl.dart';

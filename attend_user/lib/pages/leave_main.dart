@@ -274,10 +274,10 @@
 //     );
 //   }
 // }
-import 'package:attend_user/pages/annu_leave.dart';
-import 'package:attend_user/pages/casual_leave.dart';
-import 'package:attend_user/pages/half_leave.dart';
-import 'package:attend_user/pages/profile.dart';
+import 'package:talent/pages/annu_leave.dart';
+import 'package:talent/pages/casual_leave.dart';
+import 'package:talent/pages/half_leave.dart';
+import 'package:talent/pages/profile.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';

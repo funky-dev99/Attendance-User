@@ -1,6 +1,6 @@
-import 'package:attend_user/secondUser_Pages/second_home.dart';
-import 'package:attend_user/secondUser_Pages/second_tabs/claim_approval.dart';
-import 'package:attend_user/secondUser_Pages/second_tabs/claim_req.dart';
+import 'package:talent/secondUser_Pages/second_home.dart';
+import 'package:talent/secondUser_Pages/second_tabs/claim_approval.dart';
+import 'package:talent/secondUser_Pages/second_tabs/claim_req.dart';
 import 'package:flutter/material.dart';
 
 class SecClaim extends StatelessWidget {

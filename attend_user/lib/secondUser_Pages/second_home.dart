@@ -1,9 +1,9 @@
-import 'package:attend_user/secondUser_Pages/Sec_Setting.dart';
-import 'package:attend_user/secondUser_Pages/sec_ask.dart';
-import 'package:attend_user/secondUser_Pages/sec_claim_main.dart';
-import 'package:attend_user/secondUser_Pages/sec_leave_main.dart';
-import 'package:attend_user/secondUser_Pages/sec_payslip.dart';
-import 'package:attend_user/secondUser_Pages/second_attendance.dart';
+import 'package:talent/secondUser_Pages/Sec_Setting.dart';
+import 'package:talent/secondUser_Pages/sec_ask.dart';
+import 'package:talent/secondUser_Pages/sec_claim_main.dart';
+import 'package:talent/secondUser_Pages/sec_leave_main.dart';
+import 'package:talent/secondUser_Pages/sec_payslip.dart';
+import 'package:talent/secondUser_Pages/second_attendance.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

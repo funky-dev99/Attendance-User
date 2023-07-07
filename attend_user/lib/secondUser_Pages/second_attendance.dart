@@ -1,6 +1,7 @@
-import 'package:attend_user/secondUser_Pages/sec_Attend_Location_In.dart';
-import 'package:attend_user/secondUser_Pages/second_home.dart';
-import 'package:attend_user/secondUser_Pages/second_qr_page.dart';
+import 'package:talent/secondUser_Pages/sec_Attend_Location_In.dart';
+import 'package:talent/secondUser_Pages/sec_Attend_Rec.dart';
+import 'package:talent/secondUser_Pages/second_home.dart';
+import 'package:talent/secondUser_Pages/second_qr_page.dart';
 import 'package:flutter/material.dart';
 
 import '../methods/methods.dart';
@@ -116,11 +117,11 @@ class SecondAttendMain extends StatelessWidget {
             SizedBox(height: getSizeBoxHeight(context)),
             MaterialButton(
               onPressed: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) =>
-                //         const AttendanceRec())); // Add your logic here for the first button
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                        const SecAttendRec())); // Add your logic here for the first button
               },
               padding: EdgeInsets.all(10),
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,

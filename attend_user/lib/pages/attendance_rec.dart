@@ -1,8 +1,8 @@
-import 'package:attend_user/pages/attendance.dart';
-import 'package:attend_user/pages/tabs/filter.dart';
-import 'package:attend_user/pages/tabs/mark_in.dart';
-import 'package:attend_user/pages/tabs/mark_out.dart';
-import 'package:attend_user/pages/profile.dart';
+import 'package:talent/pages/attendance.dart';
+import 'package:talent/pages/tabs/filter.dart';
+import 'package:talent/pages/tabs/mark_in.dart';
+import 'package:talent/pages/tabs/mark_out.dart';
+import 'package:talent/pages/profile.dart';
 import 'package:flutter/material.dart';
 
 

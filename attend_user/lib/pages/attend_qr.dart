@@ -1,5 +1,5 @@
-import 'package:attend_user/pages/attendance.dart';
-import 'package:attend_user/pages/profile.dart';
+import 'package:talent/pages/attendance.dart';
+import 'package:talent/pages/profile.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:async';

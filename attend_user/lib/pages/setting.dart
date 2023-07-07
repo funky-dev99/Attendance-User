@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:attend_user/pages/help.dart';
-import 'package:attend_user/pages/language.dart';
-import 'package:attend_user/pages/privacy.dart';
-import 'package:attend_user/pages/profile.dart';
+import 'package:talent/pages/help.dart';
+import 'package:talent/pages/language.dart';
+import 'package:talent/pages/privacy.dart';
+import 'package:talent/pages/profile.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';

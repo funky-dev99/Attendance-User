@@ -1,7 +1,7 @@
-import 'package:attend_user/pages/leave_main.dart';
-import 'package:attend_user/secondUser_Pages/second_home.dart';
-import 'package:attend_user/secondUser_Pages/second_tabs/leave_approva.dart';
-import 'package:attend_user/secondUser_Pages/second_tabs/leave_req.dart';
+import 'package:talent/pages/leave_main.dart';
+import 'package:talent/secondUser_Pages/second_home.dart';
+import 'package:talent/secondUser_Pages/second_tabs/leave_approva.dart';
+import 'package:talent/secondUser_Pages/second_tabs/leave_req.dart';
 import 'package:flutter/material.dart';
 
 class SecLeaveMain extends StatelessWidget {

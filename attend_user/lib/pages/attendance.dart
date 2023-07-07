@@ -1,6 +1,6 @@
-import 'package:attend_user/pages/attend_qr.dart';
-import 'package:attend_user/pages/attendance_rec.dart';
-import 'package:attend_user/pages/profile.dart';
+import 'package:talent/pages/attend_qr.dart';
+import 'package:talent/pages/attendance_rec.dart';
+import 'package:talent/pages/profile.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';

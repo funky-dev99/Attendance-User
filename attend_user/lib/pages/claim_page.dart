@@ -1,4 +1,4 @@
-import 'package:attend_user/pages/profile.dart';
+import 'package:talent/pages/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 
