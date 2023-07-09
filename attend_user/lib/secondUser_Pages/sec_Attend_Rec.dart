@@ -22,18 +22,18 @@ class SecAttendRec extends StatelessWidget {
           },
         ),
         actions: [
-          // IconButton(
-          //   icon: const Icon(
-          //     Icons.person,
-          //     size: 30.0,
-          //   ),
-          //   color: Colors.black,
-          //   tooltip: 'View Profile',
-          //   onPressed: () {
-          //     Navigator.push(context,
-          //         MaterialPageRoute(builder: (context) => const ProfilePage()));
-          //   },
-          // )
+          IconButton(
+            icon: const Icon(
+              Icons.person,
+              size: 30.0,
+            ),
+            color: Colors.black,
+            tooltip: 'View Profile',
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ProfilePage()));
+            },
+          )
         ],
         elevation: 0.0,
       ),
