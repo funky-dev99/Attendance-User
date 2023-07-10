@@ -29,20 +29,20 @@ class AttendanceRec extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const AttendanceMain()));
             },
           ),
-          // actions: [
-          //   IconButton(
-          //     icon: const Icon(
-          //       Icons.person,
-          //       size: 30.0,
-          //     ),
-          //     color: Colors.black,
-          //     tooltip: 'View Profile',
-          //     onPressed: () {
-          //       Navigator.push(context,
-          //           MaterialPageRoute(builder: (context) => const ProfilePage()));
-          //     },
-          //   )
-          // ],
+          actions: [
+            IconButton(
+              icon: const Icon(
+                Icons.person,
+                size: 30.0,
+              ),
+              color: Colors.black,
+              tooltip: 'View Profile',
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ProfilePage()));
+              },
+            )
+          ],
           elevation: 0.0,
         ),
         body: Column(
